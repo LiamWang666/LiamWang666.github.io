@@ -6,13 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Hexo</title>
+  <title>文献《Classification on Imbalanced Data Sets, Taking Advantage of Errors to Improve Performance》阅读笔记 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;index.html">
+  <meta name="description" content="1. 提要（背景、方法、结果） 背景：当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。  数据不平衡领域：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序   方法：本文方法分两个阶段进行。  第一阶段：检测出对于分类方法难以正确预测的实例，然后将这些实例分为“嘈杂”和“安全”，其中前者是指其最近邻居中的大多数属于相反类别的那些实例。 第二">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文献《Classification on Imbalanced Data Sets, Taking Advantage of Errors to Improve Performance》阅读笔记">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;30&#x2F;%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 提要（背景、方法、结果） 背景：当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。  数据不平衡领域：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序   方法：本文方法分两个阶段进行。  第一阶段：检测出对于分类方法难以正确预测的实例，然后将这些实例分为“嘈杂”和“安全”，其中前者是指其最近邻居中的大多数属于相反类别的那些实例。 第二">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-30T12:46:45.159Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -149,49 +152,210 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-论文阅读笔记1《Classification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance》" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B/" class="archive-article-date">
-  	<time datetime="2019-11-30T12:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B/">文献《Classification on Imbalanced Data Sets, Taking Advantage of Errors to Improve Performance》阅读笔记</a>
+    <h1 class="article-title" itemprop="name">
+      文献《Classification on Imbalanced Data Sets, Taking Advantage of Errors to Improve Performance》阅读笔记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2019/11/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B/" class="archive-article-date">
+  	<time datetime="2019-11-30T12:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-提要（背景、方法、结果）"><a href="#1-提要（背景、方法、结果）" class="headerlink" title="1. 提要（背景、方法、结果）"></a>1. 提要（背景、方法、结果）</h2><ul>
+<li><p>背景：当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。</p>
+<blockquote>
+<p>数据不平衡领域：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序</p>
+</blockquote>
+</li>
+<li><p>方法：本文方法分两个阶段进行。</p>
+<ul>
+<li>第一阶段：检测出对于分类方法难以正确预测的实例，然后将这些实例分为“嘈杂”和“安全”，其中前者是指其最近邻居中的大多数属于相反类别的那些实例。</li>
+<li>第二阶段：根据不平衡率，为难以正确预测的每个实例自适应地合成不同数量的实例。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>特别之处：利用预测正确性的观察结果识别输入空间的困难区域（无论分类方法或类分布如何）</p>
+</blockquote>
+<ul>
+<li><p>结果：分类器的AUC区域得到了显著改善</p>
+<blockquote>
+<p>AUC ROC测量方法的意义：可以抓住非平衡样本分类中的矛盾需求，即在以最小误差检验小众类实例的同时，保证分类器对大众类实例的准确性不被严重破坏</p>
+</blockquote>
+</li>
+<li><p>待解决问题：</p>
+</li>
+<li><p>改进思路：</p>
+</li>
+</ul>
+<hr>
+<h2 id="2-已有方法"><a href="#2-已有方法" class="headerlink" title="2. 已有方法"></a>2. 已有方法</h2><ul>
+<li><p>外部方法：在应用分类方法之前对数据集进行预处理使其平衡</p>
+<ul>
+<li>上采样：增加小众类的实例</li>
+<li>下采样：减少大众类的实例</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>代表算法</strong><br>SMOTE：</p>
+<pre><code>SMOTE的变体：在考虑数据的特性（如小众类实例的密度、决策边界或多分类器的融合）的情况下针对输入空间的特殊部分生成小众类实例</code></pre></blockquote>
+<ul>
+<li>内部方法：调整算法使其更适合处理非平衡样本问题</li>
+<li>融合：联合多个分类器的结果进预测</li>
+<li>代价敏感法：使用代价矩阵乘法不同的错误分类</li>
+<li>其他方法：上述方法的不同结合 &amp; 遗传算法</li>
+</ul>
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>学学学，整体就知道学，除了学习你还会点啥，书呆子！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
+
   
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="论文阅读笔记1《Classification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance》" data-title="文献《Classification on Imbalanced Data Sets, Taking Advantage of Errors to Improve Performance》阅读笔记" data-url="http://yoursite.com/2019/11/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -214,8 +378,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
