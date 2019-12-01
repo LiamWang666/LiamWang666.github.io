@@ -23,15 +23,15 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="1. 提要（背景、方法、结果） 背景：当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。  数据不平衡领域：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序   方法：本文方法分两个阶段进行。  第一阶段：检测出对于分类方法难以正确预测的实例，然后将这些实例分为“嘈杂”和“安全”，其中前者是指其最近邻居中的大多数属于相反类别的那些实例。">
+  <meta name="description" content="1. 提要（背景、方法、结果、改进思路）（1）背景 当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。  数据不平衡领域：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序  （2）方法 本文方法分两个阶段进行。  第一阶段：检测出对于分类方法难以正确预测的实例，然后将这些实例分为“嘈杂”和“安全”，其中前者是指其最近邻居中的大多数属于相反类别">
 <meta name="keywords" content="论文阅读笔记系列,第一篇博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文阅读笔记1《Classification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance》">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;30&#x2F;%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B-1&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 提要（背景、方法、结果） 背景：当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。  数据不平衡领域：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序   方法：本文方法分两个阶段进行。  第一阶段：检测出对于分类方法难以正确预测的实例，然后将这些实例分为“嘈杂”和“安全”，其中前者是指其最近邻居中的大多数属于相反类别的那些实例。">
+<meta property="og:description" content="1. 提要（背景、方法、结果、改进思路）（1）背景 当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。  数据不平衡领域：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序  （2）方法 本文方法分两个阶段进行。  第一阶段：检测出对于分类方法难以正确预测的实例，然后将这些实例分为“嘈杂”和“安全”，其中前者是指其最近邻居中的大多数属于相反类别">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-01T04:23:44.887Z">
+<meta property="og:updated_time" content="2019-12-01T08:32:24.625Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -194,55 +194,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a> 
-
-<h1 id="1-提要（背景、方法、结果）"><a href="#1-提要（背景、方法、结果）" class="headerlink" title="1. 提要（背景、方法、结果）"></a>1. 提要（背景、方法、结果）</h1><ul>
-<li><p>背景：当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。</p>
+        <h1 id="1-提要（背景、方法、结果、改进思路）"><a href="#1-提要（背景、方法、结果、改进思路）" class="headerlink" title="1. 提要（背景、方法、结果、改进思路）"></a>1. 提要（背景、方法、结果、改进思路）</h1><p>（1）背景</p>
+<p>当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。</p>
 <blockquote>
-<p>数据不平衡领域：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序</p>
+<p><strong><em>数据不平衡领域</em></strong>：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序</p>
 </blockquote>
-</li>
-<li><p>方法：本文方法分两个阶段进行。</p>
+<p>（2）方法</p>
+<p>本文方法分两个阶段进行。</p>
 <ul>
 <li>第一阶段：检测出对于分类方法难以正确预测的实例，然后将这些实例分为“嘈杂”和“安全”，其中前者是指其最近邻居中的大多数属于相反类别的那些实例。</li>
 <li>第二阶段：根据不平衡率，为难以正确预测的每个实例自适应地合成不同数量的实例。</li>
 </ul>
-</li>
-</ul>
 <blockquote>
-<p>特别之处：利用预测正确性的观察结果识别输入空间的困难区域（无论分类方法或类分布如何）</p>
+<p><strong><em>特别之处</em></strong>：利用预测正确性的观察结果识别输入空间的困难区域（无论分类方法或类分布如何）</p>
 </blockquote>
-<!-- more --> 
+<a id="more"></a> 
 
-<ul>
-<li><p>结果：分类器的AUC区域得到了显著改善</p>
+<p>（3）结果</p>
+<p>分类器的AUC区域得到了显著改善</p>
 <blockquote>
-<p>AUC ROC测量方法的意义：可以抓住非平衡样本分类中的矛盾需求，即在以最小误差检验小众类实例的同时，保证分类器对大众类实例的准确性不被严重破坏</p>
+<p><strong><em>AUC ROC测量方法的意义</em></strong>：可以抓住非平衡样本分类中的矛盾需求，即在以最小误差检验小众类实例的同时，保证分类器对大众类实例的准确性不被严重破坏。</p>
 </blockquote>
-</li>
-<li><p>待解决问题：</p>
-</li>
-<li><p>改进思路：</p>
-</li>
-</ul>
+<p>（4）待解决问题</p>
+<p>（5）改进思路</p>
 <hr>
-<h1 id="2-已有方法"><a href="#2-已有方法" class="headerlink" title="2. 已有方法"></a>2. 已有方法</h1><ul>
-<li><p>外部方法：在应用分类方法之前对数据集进行预处理使其平衡</p>
+<h1 id="2-已有方法"><a href="#2-已有方法" class="headerlink" title="2. 已有方法"></a>2. 已有方法</h1><p>（1）外部方法</p>
+<p>在应用分类方法之前对数据集进行预处理使其平衡</p>
 <ul>
 <li>上采样：增加小众类的实例</li>
 <li>下采样：减少大众类的实例</li>
 </ul>
-</li>
-</ul>
 <blockquote>
-<p><strong>代表算法</strong><br>SMOTE：</p>
+<p><strong><em>代表算法</em></strong></p>
+</blockquote>
+<p>SMOTE：</p>
+<blockquote>
 <pre><code>SMOTE的变体：在考虑数据的特性（如小众类实例的密度、决策边界或多分类器的融合）的情况下针对输入空间的特殊部分生成小众类实例</code></pre></blockquote>
-<ul>
-<li>内部方法：调整算法使其更适合处理非平衡样本问题</li>
-<li>融合：联合多个分类器的结果进预测</li>
-<li>代价敏感法：使用代价矩阵乘法不同的错误分类</li>
-<li>其他方法：上述方法的不同结合 &amp; 遗传算法</li>
-</ul>
+<p>（2）内部方法</p>
+<p>调整算法使其更适合处理非平衡样本问题</p>
+<p>（3）融合</p>
+<p>联合多个分类器的结果进预测</p>
+<p>（4）代价敏感法</p>
+<p>使用代价矩阵乘法不同的错误分类</p>
+<p>（5）其他方法</p>
+<p>上述方法的不同结合 &amp; 遗传算法</p>
 
       
       
@@ -378,7 +373,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-提要（背景、方法、结果）"><span class="toc-number">1.</span> <span class="toc-text">1. 提要（背景、方法、结果）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-已有方法"><span class="toc-number">2.</span> <span class="toc-text">2. 已有方法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-提要（背景、方法、结果、改进思路）"><span class="toc-number">1.</span> <span class="toc-text">1. 提要（背景、方法、结果、改进思路）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-已有方法"><span class="toc-number">2.</span> <span class="toc-text">2. 已有方法</span></a></li></ol>
                     </div>
                 </span>
             </div>
