@@ -23,21 +23,23 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="1. 提要（背景、方法、结果、改进思路）（1）背景 当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。  数据不平衡领域：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序  （2）方法 本文方法分两个阶段进行。  第一阶段：检测出对于分类方法难以正确预测的实例，然后将这些实例分为“嘈杂”和“安全”，其中前者是指其最近邻居中的大多数属于相反类别">
+  <meta name="description" content="1. 提要（背景、方法、结果、改进思路）（1）背景当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。  数据不平衡领域：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序等">
 <meta name="keywords" content="论文阅读笔记系列,第一篇博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文阅读笔记1《Classification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance》">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;30&#x2F;%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B-1&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 提要（背景、方法、结果、改进思路）（1）背景 当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。  数据不平衡领域：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序  （2）方法 本文方法分两个阶段进行。  第一阶段：检测出对于分类方法难以正确预测的实例，然后将这些实例分为“嘈杂”和“安全”，其中前者是指其最近邻居中的大多数属于相反类别">
+<meta property="og:description" content="1. 提要（背景、方法、结果、改进思路）（1）背景当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。  数据不平衡领域：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序等">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-01T08:32:24.625Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;01&#x2F;RXZWn4cP5rx9d7k.png">
+<meta property="og:updated_time" content="2019-12-01T14:32:27.498Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;01&#x2F;RXZWn4cP5rx9d7k.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
-    <link rel="icon" href="/assets/wangye.jpg">
+    <link rel="icon" href="https://i.loli.net/2019/12/01/lcZFadVIC1Svbsw.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -61,7 +63,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/assets/1.jpg" class="js-avatar">
+			<img src="https://i.loli.net/2019/12/01/639LIlQqdbTVNc2.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Liam Wang</a></h1>
@@ -121,7 +123,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/1.jpg" class="js-avatar">
+				<img src="https://i.loli.net/2019/12/01/639LIlQqdbTVNc2.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Liam Wang</h1>
@@ -194,13 +196,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-提要（背景、方法、结果、改进思路）"><a href="#1-提要（背景、方法、结果、改进思路）" class="headerlink" title="1. 提要（背景、方法、结果、改进思路）"></a>1. 提要（背景、方法、结果、改进思路）</h1><p>（1）背景</p>
-<p>当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。</p>
+        <h1 id="1-提要（背景、方法、结果、改进思路）"><a href="#1-提要（背景、方法、结果、改进思路）" class="headerlink" title="1. 提要（背景、方法、结果、改进思路）"></a>1. 提要（背景、方法、结果、改进思路）</h1><h3 id="（1）背景"><a href="#（1）背景" class="headerlink" title="（1）背景"></a>（1）背景</h3><p>当前已提出的解决非平衡样本问题的方法中，大部分都是合成实例来平衡数据集，但往往会导致过拟合问题。</p>
 <blockquote>
-<p><strong><em>数据不平衡领域</em></strong>：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序</p>
+<p><strong><em>数据不平衡领域</em></strong>：软件缺陷检测、医疗诊断、电信欺诈检验、财务风险、DNA测序等</p>
 </blockquote>
-<p>（2）方法</p>
-<p>本文方法分两个阶段进行。</p>
+<a id="more"></a>  
+
+<h3 id="（2）方法"><a href="#（2）方法" class="headerlink" title="（2）方法"></a>（2）方法</h3><p>本文方法分两个阶段进行。</p>
 <ul>
 <li>第一阶段：检测出对于分类方法难以正确预测的实例，然后将这些实例分为“嘈杂”和“安全”，其中前者是指其最近邻居中的大多数属于相反类别的那些实例。</li>
 <li>第二阶段：根据不平衡率，为难以正确预测的每个实例自适应地合成不同数量的实例。</li>
@@ -208,36 +210,27 @@
 <blockquote>
 <p><strong><em>特别之处</em></strong>：利用预测正确性的观察结果识别输入空间的困难区域（无论分类方法或类分布如何）</p>
 </blockquote>
-<a id="more"></a> 
-
-<p>（3）结果</p>
-<p>分类器的AUC区域得到了显著改善</p>
+<h3 id="（3）结果"><a href="#（3）结果" class="headerlink" title="（3）结果"></a>（3）结果</h3><p>分类器的AUC区域得到了显著改善</p>
 <blockquote>
 <p><strong><em>AUC ROC测量方法的意义</em></strong>：可以抓住非平衡样本分类中的矛盾需求，即在以最小误差检验小众类实例的同时，保证分类器对大众类实例的准确性不被严重破坏。</p>
 </blockquote>
-<p>（4）待解决问题</p>
-<p>（5）改进思路</p>
-<hr>
-<h1 id="2-已有方法"><a href="#2-已有方法" class="headerlink" title="2. 已有方法"></a>2. 已有方法</h1><p>（1）外部方法</p>
-<p>在应用分类方法之前对数据集进行预处理使其平衡</p>
+<h3 id="（4）待解决问题"><a href="#（4）待解决问题" class="headerlink" title="（4）待解决问题"></a>（4）待解决问题</h3><h3 id="（5）改进思路"><a href="#（5）改进思路" class="headerlink" title="（5）改进思路"></a>（5）改进思路</h3><hr>
+<h1 id="2-已有方法"><a href="#2-已有方法" class="headerlink" title="2. 已有方法"></a>2. 已有方法</h1><h3 id="（1）外部方法"><a href="#（1）外部方法" class="headerlink" title="（1）外部方法"></a>（1）外部方法</h3><p>在应用分类方法之前对数据集进行预处理使其平衡</p>
 <ul>
 <li>上采样：增加小众类的实例</li>
 <li>下采样：减少大众类的实例</li>
 </ul>
 <blockquote>
-<p><strong><em>代表算法</em></strong></p>
+<p><strong><em>代表算法SMOTE</em></strong>：利用小众样本在特征空间的相似性来生成新样本。对于小众样本 xi∈Smin 小众类，从它属于小众类的 K 近邻中随机选取一个样本点  x^i （这个样本是 xi 的；称为临近样本），生成一个新的小众样本 xnew：xnew=xi+(x^i−xi)×δ ，其中 δ∈[0,1]， δ 是随机数。<br>如下图所示：</p>
+<div align=center><img src="https://i.loli.net/2019/12/01/RXZWn4cP5rx9d7k.png" width = "50%" height = "50%" alt="SMOTE.png">
 </blockquote>
-<p>SMOTE：</p>
 <blockquote>
-<pre><code>SMOTE的变体：在考虑数据的特性（如小众类实例的密度、决策边界或多分类器的融合）的情况下针对输入空间的特殊部分生成小众类实例</code></pre></blockquote>
-<p>（2）内部方法</p>
-<p>调整算法使其更适合处理非平衡样本问题</p>
-<p>（3）融合</p>
-<p>联合多个分类器的结果进预测</p>
-<p>（4）代价敏感法</p>
-<p>使用代价矩阵乘法不同的错误分类</p>
-<p>（5）其他方法</p>
-<p>上述方法的不同结合 &amp; 遗传算法</p>
+<p><strong><em>SMOTE的变体</em></strong>：在考虑数据的特性（如小众类实例的密度、决策边界或多分类器的融合）的情况下针对输入空间的特殊部分生成小众类实例</p>
+</blockquote>
+<h3 id="（2）内部方法"><a href="#（2）内部方法" class="headerlink" title="（2）内部方法"></a>（2）内部方法</h3><p>调整算法使其更适合处理非平衡样本问题</p>
+<h3 id="（3）融合"><a href="#（3）融合" class="headerlink" title="（3）融合"></a>（3）融合</h3><p>联合多个分类器的结果进预测</p>
+<h3 id="（4）代价敏感法"><a href="#（4）代价敏感法" class="headerlink" title="（4）代价敏感法"></a>（4）代价敏感法</h3><p>使用代价矩阵乘法不同的错误分类</p>
+<h3 id="（5）其他方法"><a href="#（5）其他方法" class="headerlink" title="（5）其他方法"></a>（5）其他方法</h3><p>上述方法的不同结合 &amp; 遗传算法</p>
 
       
       
@@ -259,7 +252,7 @@
                     
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/weixin.jpg">
+                      <img class="reward-img" src="https://i.loli.net/2019/12/01/AxWCzilbQFca5yI.jpg">
                       <span class="reward-type">微信</span>
                     </div>
                     
@@ -373,7 +366,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-提要（背景、方法、结果、改进思路）"><span class="toc-number">1.</span> <span class="toc-text">1. 提要（背景、方法、结果、改进思路）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-已有方法"><span class="toc-number">2.</span> <span class="toc-text">2. 已有方法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-提要（背景、方法、结果、改进思路）"><span class="toc-number">1.</span> <span class="toc-text">1. 提要（背景、方法、结果、改进思路）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）背景"><span class="toc-number">1.0.1.</span> <span class="toc-text">（1）背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）方法"><span class="toc-number">1.0.2.</span> <span class="toc-text">（2）方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）结果"><span class="toc-number">1.0.3.</span> <span class="toc-text">（3）结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）待解决问题"><span class="toc-number">1.0.4.</span> <span class="toc-text">（4）待解决问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（5）改进思路"><span class="toc-number">1.0.5.</span> <span class="toc-text">（5）改进思路</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-已有方法"><span class="toc-number">2.</span> <span class="toc-text">2. 已有方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）外部方法"><span class="toc-number">2.0.1.</span> <span class="toc-text">（1）外部方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）内部方法"><span class="toc-number">2.0.2.</span> <span class="toc-text">（2）内部方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）融合"><span class="toc-number">2.0.3.</span> <span class="toc-text">（3）融合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）代价敏感法"><span class="toc-number">2.0.4.</span> <span class="toc-text">（4）代价敏感法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（5）其他方法"><span class="toc-number">2.0.5.</span> <span class="toc-text">（5）其他方法</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
