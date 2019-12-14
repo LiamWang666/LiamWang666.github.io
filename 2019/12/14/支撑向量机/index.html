@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 论文阅读笔记系列 | Hexo</title>
+  <title>支撑向量机学习笔记 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,12 +23,33 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E7%B3%BB%E5%88%97&#x2F;index.html">
+  <meta name="description" content="【注：本文侧重应用，不讲推导】 1. SVM概述 类型：有监督学习 目的：在高维或无限维空间中构造一个超平面或一组超平面，可用于分类、回归或其他任务。   若样本为 n 维，则超平面为 n-1 维">
+<meta name="keywords" content="机器学习,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="支撑向量机学习笔记">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;%E6%94%AF%E6%92%91%E5%90%91%E9%87%8F%E6%9C%BA&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="【注：本文侧重应用，不讲推导】 1. SVM概述 类型：有监督学习 目的：在高维或无限维空间中构造一个超平面或一组超平面，可用于分类、回归或其他任务。   若样本为 n 维，则超平面为 n-1 维">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;14&#x2F;g2rQS5pvOdWeitM.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRnlHx.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRuIOA.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRu7wt.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRu4QH.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRuqFf.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRuWWD.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRMg2D.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRQ3sH.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRQ8Ld.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRM2xe.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRJIOO.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRJ70e.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRJ56K.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRJHTH.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;QRJqkd.png">
+<meta property="og:updated_time" content="2019-12-14T08:38:54.767Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;14&#x2F;g2rQS5pvOdWeitM.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -170,64 +191,379 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-支撑向量机" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B-1/" class="archive-article-date">
-  	<time datetime="2019-11-30T14:15:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B-1/">论文阅读笔记1《Classification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance》</a>
+    <h1 class="article-title" itemprop="name">
+      支撑向量机学习笔记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/12/14/%E6%94%AF%E6%92%91%E5%90%91%E9%87%8F%E6%9C%BA/" class="archive-article-date">
+  	<time datetime="2019-12-14T05:18:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>【注：本文侧重应用，不讲推导】</code></pre><hr>
+<h1 id="1-SVM概述"><a href="#1-SVM概述" class="headerlink" title="1. SVM概述"></a>1. SVM概述</h1><ul>
+<li>类型：有监督学习</li>
+<li>目的：在高维或无限维空间中构造一个超平面或一组超平面，可用于分类、回归或其他任务。</li>
+</ul>
+<blockquote>
+<p>若样本为 n 维，则超平面为 n-1 维</p>
+</blockquote>
+<a id="more"></a>  
+
+<ul>
+<li><p>样本可通过超平面实现良好的分离，该平面与所有类别的最近训练数据点的距离最大<strong>（最小距离最大化）</strong>。通常最大间隔 margin 越大，则SVM的泛化误差越小。</p>
+<div align=center><img src="https://i.loli.net/2019/12/14/g2rQS5pvOdWeitM.png" width = "30%" height = "25%" alt="SMOTE.png">
+</li>
+<li><div align=left>任意超平面均可表示为 wx+b=0，其中 w 为平面的法向量，我们需找到满足要求的 w 和 b，使得最大间隔 margin 最大化。w 越小，margin 越大，等价条件如下：
+<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRnlHx.png" width = "25%" height = "7%" alt="SMOTE.png">
+
+</li>
+</ul>
+<hr>
+<h1 id="2-SVM解决分类问题"><a href="#2-SVM解决分类问题" class="headerlink" title="2. SVM解决分类问题"></a>2. SVM解决分类问题</h1><blockquote>
+<div align=left>对偶形式为原始不等式形式的定式表达
+</blockquote>
+<h2 id="1-1-线性二分类问题"><a href="#1-1-线性二分类问题" class="headerlink" title="1.1 线性二分类问题"></a><div align=left>1.1 线性二分类问题</h2><ul>
+<li><div align=left>原始形式<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRuIOA.png" width = "25%" height = "8%" alt="SMOTE.png">
+</li>
+<li><div align=left>对偶形式<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRu7wt.png" width = "30%" height = "10%" alt="SMOTE.png">
+</li>
+<li><div align=left>决策函数<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRu4QH.png" width = "30%" height = "10%" alt="SMOTE.png">
+
+</li>
+</ul>
+<div align=left>其中，yi为样本标签，b为阈值，αi为对应样本点的拉格朗日系数。对于每一个样本，都需要带入上式求 f(x)
+
+<div align=left>
+
+<h2 id="1-2-非严格线性二分类问题"><a href="#1-2-非严格线性二分类问题" class="headerlink" title="1.2 非严格线性二分类问题"></a><div align=left>1.2 非严格线性二分类问题</h2><ul>
+<li><div align=left>原始形式<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRuqFf.png" width = "25%" height = "11%" alt="SMOTE.png">
+
+  <div align=left>C为损失函数的乘法因子，用于衡量异常样本的容忍度（重视度）。min 整体一定，如果C很大则 min 前一部分很小，容错空间则更小，表示该样本很重要，不允许分类错误。
+</li>
+<li><div align=left>对偶形式<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRuWWD.png" width = "30%" height = "12%" alt="SMOTE.png">
+
+
+
+</li>
+</ul>
+<h2 id="1-3-非线性问题（核函数）"><a href="#1-3-非线性问题（核函数）" class="headerlink" title="1.3 非线性问题（核函数）"></a><div align=left>1.3 非线性问题（核函数）</h2><div align=left>找不到一个线性可分面，则可运用核函数解决。核函数有两个作用：①将样本从低维空间→高维空间，使得样本分散开更容易分开；②可实现低维运算（计算量小），分类效果在高维空间表现。
+
+<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRMg2D.png" width = "50%" height = "25%" alt="SMOTE.png">
+
+<ul>
+<li><div align=left>对偶形式<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRQ3sH.png" width = "30%" height = 15%" alt="SMOTE.png">
+</li>
+<li><div align=left>决策函数<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRQ8Ld.png" width = "30%" height = "20%" alt="SMOTE.png">
+
+</li>
+</ul>
+<div align=left>
+
+<p>图形形式为<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRM2xe.png" width = "35%" height = "30%" alt="SMOTE.png"></p>
+<div align=left>
+
+<h2 id="1-4-多分类问题解决思路"><a href="#1-4-多分类问题解决思路" class="headerlink" title="1.4 多分类问题解决思路"></a><div align=left>1.4 多分类问题解决思路</h2><ul>
+<li><p><strong>one-against-all</strong>：如有4个类别的样本1、2、3、4，第一次分类将第1类样本作为正类，其他均为负类，从而进行一次二分类。同理，一共需要进行4次二分类问题，得出的结果分别为f1(x)、f2(x)、f3(x)、f4(x)，分类时将未知样本分类为具有最大分类函数值的那类。</p>
+</li>
+<li><p><strong>one-against-one</strong>：在任意两类样本之间设计一个SVM，因此k个类别的样本就需要设计k(k-1)/2个SVM。当对一个未知样本进行分类时，最后得票最多的类别即为该未知样本的类别。</p>
+</li>
+</ul>
+<hr>
+<h1 id="3-SVM解决回归问题"><a href="#3-SVM解决回归问题" class="headerlink" title="3. SVM解决回归问题"></a><div align=left>3. SVM解决回归问题</h1><div align=center><img src="https://s2.ax1x.com/2019/12/14/QRJIOO.png" width = "35%" height = "25%" alt="SMOTE.png">
+
+<ul>
+<li><div align=left>原理概述：在SVM分类的基础上引入了不敏感损失函数，从而得到了回归型支持向量机（Support Vector Machine for Regression，SVR）。
+
+</li>
+</ul>
+<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRJ70e.png" width = "30%" height = "13%" alt="SMOTE.png">
+
+<ul>
+<li><div align=left>基本思想：SVM应用于回归拟合分析时，其基本思想不再是寻找一个最优分类面使得两类样本分开，而是寻找一个最优分类面使得所有训练样本离该最优分类面的**误差最小**
+</li>
+<li><div align=left>原始形式
+
+</li>
+</ul>
+<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRJ56K.png" width = "30%" height = "13%" alt="SMOTE.png">
+
+<ul>
+<li><div align=left>对偶形式
+
+</li>
+</ul>
+<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRJHTH.png" width = "45%" height = "16%" alt="SMOTE.png">
+
+<ul>
+<li><div align=left>决策函数
+
+</li>
+</ul>
+<div align=center><img src="https://s2.ax1x.com/2019/12/14/QRJqkd.png" width = "40%" height = "30%" alt="SMOTE.png">
+
+<div align=left>
+
+<h1 id="3-SVM训练算法"><a href="#3-SVM训练算法" class="headerlink" title="3. SVM训练算法"></a><div align=left>3. SVM训练算法</h1><h2 id="3-1-块算法（chunking-algorithm）"><a href="#3-1-块算法（chunking-algorithm）" class="headerlink" title="3.1 块算法（chunking algorithm）"></a>3.1 块算法（chunking algorithm）</h2><ul>
+<li>基本原理：删除矩阵中对应Lagrange乘数为零的行和列将不会影响最终的结果。对于给定的样本， Chunking算法的目标是通过某种迭代方式逐步排除非支持向量，从而降低训练过程对存储器容量的要求</li>
+<li>具体做法：将一个大型QP问题分解为一系列较小规模的QP问题， 然后找到所有非零的Lagrange乘数并删除。在算法的每步中Chunking都解决一个QP问题，<strong>其样本为上一步所剩的具有非零Lagrange乘数的样本以及M个不满足KKT条件的最差样本</strong>。如果在某一步中，不满足KKT条件的样本数不足M个，则这些样本全部加入到新的QP问题中。<strong>每个QP子问题都采用上一个QP子问题的结果作为初始值</strong>。在算法进行到最后一步时，所有非零Lagrange乘数都被找到，从而解决了初始的大型QP问题。</li>
+<li>优点：Chunking算法将矩阵规模从训练样本数的平方减少到具有非零Lagrange乘数的样本数的平方，在很大程度上降低了训练过程对存储容量的要求。</li>
+<li>缺点：Chunking算法能够大大提高训练速度，尤其是当支持向量的数目远远小于训练样本的数目时。然而，如果支持向量个数比较多，随着算法迭代次数的增多，所选的块也会越来越大，算法的训练速度依旧会变得十分缓慢。</li>
+</ul>
+<h2 id="3-2-分解算法-decomposition-algorithm"><a href="#3-2-分解算法-decomposition-algorithm" class="headerlink" title="3.2 分解算法(decomposition algorithm)"></a>3.2 分解算法(decomposition algorithm)</h2><ul>
+<li>分解算法是目前有效解决大规模问题的主要方法。</li>
+<li>具体做法：分解算法将二次规划问题分解成一系列规模较小的二次规划子问题，进行迭代求解。在每次迭代中，选取拉格朗日乘子分量的一个子集做为工作集，利用传统优化算法求解一个二次规划的子问题。关键在于选择一种<strong>最优工作集选择算法</strong>，而在工作集的选取中采用了随机的方法，因此限制了算法的收敛速度。</li>
+</ul>
+<blockquote>
+<p>【例子】以分类SVM为例，分解算法的主要思想是将训练样本分成工作集B和非工作集N，工作集B中的样本个数为 q ， q 远小于训练样本总数。每次只针对工作集B中的样本进行训练，而固定N中的训练样本。</p>
+</blockquote>
+<ul>
+<li>改进算法：<ul>
+<li>文献 <strong><em>JOACHIMS T. Making large-scale support vector machine learning practical[C]//Advances in Kernel Methods:Support Vector Learning. Cambridge, MA: The MIT Press,1998.</em></strong> 在分解算法的基础上对工作集的选择做了重要改进。采用类似可行方向法的策略确定工作集B。如果存在不满足KTT条件的样本，利用最速下降法，在最速下降方向中存在 q 个样本，然后以这 q 个样本构成工作集， 在该工作集上解决QP问题，直到所有样本满足KTT条件。如此改进提高了分解算法的收敛速度，并且实现了SVMlight算法。</li>
+<li><strong>代表算法SMO（Sequential Minimal Optimization，SMO）</strong><ul>
+<li>介绍：它是分解算法的一个特例，工作集中只有2个样本，其优点是针对2个样本的二次规划问题可以有解析解的形式，从而避免多样本情况下的数值解不稳定及耗时问题，且不需要大的矩阵存储空间，特别适合稀疏样本。工作集的选择不是传统的最陡下降法，而是启发式。通过两个嵌套的循环寻找待优化的样本，然后在内环中选择另一个样本，完成一次优化，再循环，进行下一次优化，直到全部样本都满足最优条件。 SMO算法主要耗时在最优条件的判断上，所以应寻找最合理即计算代价最低的最优条件判别式。</li>
+<li>改进：SMO算法提出后，许多学者对其进行了有效的改进。文献 <strong><em>DAI Liu-ling, HUANG He-yan, CHEN Zhao-xiong.Ternary sequential analytic optimization algorithm for SVM classifier design[J]. Asian Journal of Information Technology, 2005, 4(3): 2-8</em></strong>提出了在内循环中每次优化3个变量，因为3个变量的优化问题同样可以解析求解， 实验表明该算法比SMO的训练时间更短。文献 <strong><em>KEERTHI S S, SHEVADE S K, BHATTAEHARYYA C. Improvements to platt’s SMO algorithm for SVM classifier design[J]. Neural Computation, 2001, 13(3): 637- 649. 和 PLATT J. Using analytic QP and sparseness to speed training support vector machines[C] Advances in Neural Information Processing Systems. [S.l]: MIT Press, 1999,557-563.</em></strong>在迭代过程中的判优条件和循环策略上做了一定的修改，加快了算法的速度。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-3-增量算法-incremental-algorithm"><a href="#3-3-增量算法-incremental-algorithm" class="headerlink" title="3.3 增量算法(incremental algorithm)"></a>3.3 增量算法(incremental algorithm)</h2><ul>
+<li>概念：机器学习系统在处理新增样本时，能够只对原学习结果中与新样本有关的部分进行增加修改或删除操作，与之无关的部分则不被触及。增量训练算法的一个<strong>突出特点</strong>是支持向量机的学习不是一次离线进行的，而是一个数据逐一加入反复优化的过程。</li>
+<li>发展完善<ul>
+<li>文献 <strong><em>SYED N, LIU H, SUNG K. Incremental learning with support vector machines[C] International Joint Conference on Artificial Intelligence. Sweden: Morgan kaufmann publishers, 1999: 352-356.</em></strong> 最早提出了SVM增量训练算法，每次只选一小批常规二次算法能处理的数据作为增量，保留原样本中的支持向量和新增样本混合训练，直到训练样本用完。</li>
+<li>文献 <strong><em>GAUWENBERGHS G, POGGIO T. Incremental and decremental support vector machine[J]. Machine Learning.2001, 44 (13): 409- 415.</em></strong> 提出了增量训练的精确解 ， 即 增 加 一 个 训 练 样 本 或 减 少 一 个 样 本 对Lagrange系数和支持向量的影响。</li>
+<li>文献 <strong><em>RALAIVOLA L, FLORENCE D’ALCHÉ-BUC.Incremental support vector machine learning: a local approach[C] Proceedings of International Conference on Neural Networks. Vienna, Austria: [s.n.], 2001: 322-330.</em></strong> 提出了另一种增量式学习方法，其思想是基于高斯核的局部特性，只更新对学习机器输出影响最大的Lagrange系数，以减少计算复杂度。</li>
+<li>文献 <strong><em>KONG Rui, ZHANG Bing. A fast incremental learning algorithm for support vector machine[J]. Control And Decision, 2005, 20(1): 1129- 1132.</em></strong> 提出了一种“快速增量学习算法”， 该算法依据边界向量不一定是支持向量，但支持向量一定是边界向量的原理，首先选择那些可能成为支持向量的边界向量，进行SVM的增量学习，找出支持向量，最终求出最优分类面，提高训练速度。</li>
+<li>文献 <strong><em>孔波, 刘小茂, 张钧. 基于中心距离比值的增量支持向量机[J]. 计算机应用, 2006, 26(6): 1434-1436.KONG Bo, LIU Xiao-mao, ZHANG Jun. Incremental support vector machine based on center distance ratio[J].Journal of Computer Applications, 2006, 26(6): 1434-1436.</em></strong> 提出了基于中心距离比值的增量运动向量机，利用中心距离比值，在保证训练和测试准确率没有改变的情况下，提高收敛速度。</li>
+<li>文献 <strong><em>李东晖, 杜树新, 吴铁军. 基于壳向量的线性支持向量机快速增量学习算法[J]. 浙江大学学报, 2006, 40(2):202- 215.</em></strong> 提出了基于壳向量的线性SVM增量学习算法，通过初始样本集求得壳向量，进行SVM训练，得到支持向量集降低二次规划过程的复杂度，提高整个算法的训练速度和分类精度。</li>
+</ul>
+</li>
+</ul>
+
+      
+      
+
+  <div class="declare" hidden="hidden"></div>
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>学学学，整体就知道学，除了学习你还会点啥，书呆子！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://i.loli.net/2019/12/01/AxWCzilbQFca5yI.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">论文阅读笔记系列</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">第一篇博客</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/14/%E6%94%AF%E6%92%91%E5%90%91%E9%87%8F%E6%9C%BA/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/11/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">论文阅读笔记1《Classification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance》</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-SVM概述"><span class="toc-number">1.</span> <span class="toc-text">1. SVM概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-SVM解决分类问题"><span class="toc-number">2.</span> <span class="toc-text">2. SVM解决分类问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-线性二分类问题"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 线性二分类问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-非严格线性二分类问题"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 非严格线性二分类问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-非线性问题（核函数）"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 非线性问题（核函数）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-多分类问题解决思路"><span class="toc-number">2.4.</span> <span class="toc-text">1.4 多分类问题解决思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-SVM解决回归问题"><span class="toc-number">3.</span> <span class="toc-text">3. SVM解决回归问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-SVM训练算法"><span class="toc-number">4.</span> <span class="toc-text">3. SVM训练算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-块算法（chunking-algorithm）"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 块算法（chunking algorithm）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-分解算法-decomposition-algorithm"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 分解算法(decomposition algorithm)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-增量算法-incremental-algorithm"><span class="toc-number">4.3.</span> <span class="toc-text">3.3 增量算法(incremental algorithm)</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="支撑向量机" data-title="支撑向量机学习笔记" data-url="http://yoursite.com/2019/12/14/%E6%94%AF%E6%92%91%E5%90%91%E9%87%8F%E6%9C%BA/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
+   
+       <section id="comments" class="comments">
+         <style>
+           .comments{margin:30px;padding:10px;background:#fff}
+           @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+         </style>
+         <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var notify = 'false' == true ? true : false;
+  var verify = 'false' == true ? true : false;
+  new Valine({
+    av: AV,
+    el: '#vcomment',
+    notify: notify,
+    app_id: "uieTpuCwI1lUPYSf0SvnWqjg-gzGzoHsz",
+    app_key: "ykAOcXNeqLPgT6R0V63QLfBN",
+    placeholder: "Just go go",
+    avatar: "mm",
+  });
+</script>
+     </section>
+   
 
 
           </div>
@@ -256,9 +592,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
