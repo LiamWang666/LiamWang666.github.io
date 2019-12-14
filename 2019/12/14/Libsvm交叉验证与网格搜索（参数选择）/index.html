@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Hexo</title>
+  <title>Libsvm交叉验证与网格搜索（参数选择） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,11 +23,15 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;index.html">
+  <meta name="description" content="转载自Libsvm交叉验证与网格搜索（参数选择）  一、交叉验证交叉验证（Cross validation）是一种评估统计分析、机器学习算法对独立于训练数据的数据集的泛化能力（generalize）的方法， 能够避免过拟合问题。 交叉验证一般要尽量满足：  训练集的比例要足够多，一般大于一半  训练集和测试集要均匀抽样">
+<meta name="keywords" content="支撑向量机SVM,机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Libsvm交叉验证与网格搜索（参数选择）">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;Libsvm%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E4%B8%8E%E7%BD%91%E6%A0%BC%E6%90%9C%E7%B4%A2%EF%BC%88%E5%8F%82%E6%95%B0%E9%80%89%E6%8B%A9%EF%BC%89&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="转载自Libsvm交叉验证与网格搜索（参数选择）  一、交叉验证交叉验证（Cross validation）是一种评估统计分析、机器学习算法对独立于训练数据的数据集的泛化能力（generalize）的方法， 能够避免过拟合问题。 交叉验证一般要尽量满足：  训练集的比例要足够多，一般大于一半  训练集和测试集要均匀抽样">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-14T11:21:15.874Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -170,36 +174,118 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Libsvm交叉验证与网格搜索（参数选择）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/14/Libsvm%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E4%B8%8E%E7%BD%91%E6%A0%BC%E6%90%9C%E7%B4%A2%EF%BC%88%E5%8F%82%E6%95%B0%E9%80%89%E6%8B%A9%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2019-12-14T11:02:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/14/Libsvm%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E4%B8%8E%E7%BD%91%E6%A0%BC%E6%90%9C%E7%B4%A2%EF%BC%88%E5%8F%82%E6%95%B0%E9%80%89%E6%8B%A9%EF%BC%89/">Libsvm交叉验证与网格搜索（参数选择）</a>
+    <h1 class="article-title" itemprop="name">
+      Libsvm交叉验证与网格搜索（参数选择）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/12/14/Libsvm%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E4%B8%8E%E7%BD%91%E6%A0%BC%E6%90%9C%E7%B4%A2%EF%BC%88%E5%8F%82%E6%95%B0%E9%80%89%E6%8B%A9%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2019-12-14T11:02:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>转载自<a href="https://www.cnblogs.com/ranjiewen/p/6214425.html" target="_blank" rel="noopener" title="libsvm交叉验证与网格搜索（参数选择）">Libsvm交叉验证与网格搜索（参数选择）</a></p>
+</blockquote>
+<h1 id="一、交叉验证"><a href="#一、交叉验证" class="headerlink" title="一、交叉验证"></a>一、交叉验证</h1><p>交叉验证（Cross validation）是一种评估统计分析、机器学习算法对独立于训练数据的数据集的泛化能力（generalize）的方法， 能够避免过拟合问题。</p>
+<p>交叉验证一般要尽量满足：</p>
+<ul>
+<li><p>训练集的比例要足够多，一般大于一半</p>
+</li>
+<li><p>训练集和测试集要均匀抽样</p>
+</li>
+</ul>
+<a id="more"></a>  
+
+<p>交叉验证主要分成以下几类：</p>
+<h4 id="1）Double-cross-validation"><a href="#1）Double-cross-validation" class="headerlink" title="1）Double cross-validation"></a>1）Double cross-validation</h4><p>Double cross-validation也称2-fold cross-validation(2-CV)，作法是<strong>将数据集分成两个相等大小的子集，进行两回合的分类器训练</strong>。在第一回合中，一个子集作为训练集，另一个作为测试集；在第二回合中，则将训练集与测试集对换后，再次训练分类器，而其中我们比较关心的是两次测试集的识别率。不过在实际中2-CV并不常用，主要原因是训练集样本数太少，通常不足以代表母体样本的分布，导致测试阶段识别率容易出现明显落差。此外，2-CV中子集的变异度大，往往无法达到「实验过程必须可以被复制」的要求。</p>
+<h4 id="2）k-folder-cross-validation-k折交叉验证"><a href="#2）k-folder-cross-validation-k折交叉验证" class="headerlink" title="2）k-folder cross-validation(k折交叉验证)"></a>2）k-folder cross-validation(k折交叉验证)</h4><p>K-fold cross-validation (k-CV)则是Double cross-validation的延伸，做法是<strong>将数据集分成k个子集，每个子集均做一次测试集，其余的作为训练集。k-CV交叉验证重复k次，每次选择一个子集作为测试集，并将k次的平均交叉验证识别率作为结果</strong>。<br>优点：所有的样本都被作为了训练集和测试集，每个样本都被验证一次。10-folder通常被使用。</p>
+<h4 id="3）leave-one-out-cross-validation-LOOCV留一验证法"><a href="#3）leave-one-out-cross-validation-LOOCV留一验证法" class="headerlink" title="3）leave-one-out cross-validation(LOOCV留一验证法)"></a>3）leave-one-out cross-validation(LOOCV留一验证法)</h4><p>假设数据集中有n个样本，那LOOCV也就是n-CV，意思是每个样本单独作为一次测试集，剩余n-1个样本则做为训练集。<br>优点：</p>
+<ul>
+<li>每一回合中几乎所有的样本皆用于训练model，因此最接近母体样本的分布，估测所得的generalization error比较可靠。 因此在实验数据集样本较少时，可以考虑使用LOOCV。</li>
+<li>实验过程中没有随机因素会影响实验数据，确保实验过程是可以被复制的。</li>
+</ul>
+<p>但LOOCV的缺点则是计算成本高，为需要建立的models数量与总样本数量相同，当总样本数量相当多时，LOOCV在实作上便有困难，除非每次训练model的速度很快，或是可以用平行化计算减少计算所需的时间。</p>
+<blockquote>
+<p>libsvm提供了 void svm_cross_validation(const struct svm_problem *prob, const struct svm_parameter *param, int nr_fold, double *target)方法，参数含义如下：</p>
+</blockquote>
+<pre><code>- prob：待解决的分类问题，就是样本数据。
+- param：svm训练参数。
+- nr_fold：顾名思义就是k折交叉验证中的k，如果k=n的话就是留一法了。
+- target：预测值，如果是分类问题的话就是类别标签了。</code></pre><hr>
+<h1 id="二、参数选择"><a href="#二、参数选择" class="headerlink" title="二、参数选择"></a>二、参数选择</h1><p>使用svm，无论是libsvm还是svmlight，都需要对参数进行设置。以RBF核为例，在《A Practical Guide to Support Vector Classi cation》一文中作者提到在RBF核中有2个参数：C和g。对于一个给定的问题，我们事先不知道C和g取多少最优，因此我们要进行模型选择（参数搜索）。这样做的目标是找到好的(C, g)参数对，使得分类器能够精确地预测未知的数据，比如测试集。需要注意的是在训练集上追求高精确度可能是没用的（意指泛化能力）。根据前一部分所说的，<strong>衡量泛化能力要用到交叉验证</strong>。</p>
+<p>在文章中作者推荐使用“网格搜索”来寻找最优的C和g。所谓的<strong>网格搜索就是尝试各种可能的(C, g)对值，然后进行交叉验证</strong>，找出使交叉验证精确度最高的(C, g)对。“网格搜索”的方法很直观但是看起来有些原始。事实上有许多高级的算法，比如可以使用一些近似算法或启发式的搜索来降低复杂度。但是我们倾向于使用“网格搜索”这一简单的方法:</p>
+<ul>
+<li>1）从心理上讲，不进行全面的参数搜索而是使用近似算法或启发式算法让人感觉不安全。</li>
+<li>2）如果参数比较少，“网格搜索”的复杂度比高级算法高不了多少。</li>
+<li>3）“网格搜索”可并行性高，因为每个(C, g)对是相互独立的。</li>
+</ul>
+<p>说了那么大半天，其实<strong>“网格搜索”就是n层循环</strong>，n是参数个数，仍然以RBF核为例，编程实现如下：</p>
+<pre><code>for(double c=c_begin;c&lt;c_end;c+=c_step)
+{
+         for(double g=g_begin;g&lt;g_end;g+=g_step)
+        {
+         //这里进行交叉验证，计算精确度。
+        }
+}</code></pre><p>通过上述两层循环找到最优的C和g就可以了。</p>
+<h1 id="三、注意点"><a href="#三、注意点" class="headerlink" title="三、注意点"></a>三、注意点</h1><ul>
+<li><p>使用Cross-Validation时常犯的错误</p>
+<p>  由于实验室许多研究都有用到evolutionary algorithms(EA)与classifiers，所使用的fitness function中通常都有用到classifier的辨识率，然而把cross-validation用错的案例还不少。前面说过，只有training data才可以用于model的建构，所以<strong>只有training data的辨识率才可以用在fitness function中</strong>。而EA是训练过程用来调整model最佳参数的方法，所以只有在EA结束演化后，model参数已经固定了，这时候才可以使用test data。（当然如果想造假的话就把测试集的数据参与进模型训练，这样得到的模型效果多少会好些，因为模型本身已经包含了测试集的先验知识，测试集对它来说不再是未知数据。）</p>
+</li>
+<li><p>那EA跟cross-validation要如何搭配呢？</p>
+<p>  Cross-validation的本质是用来估测(estimate)某个classification method对一组dataset的generalization error，不是用来设计classifier的方法，所以<strong>cross-validation不能用在EA的fitness function中</strong>，因为与fitness function有关的样本都属于training set，那试问哪些样本才是test set呢？如果某个fitness function中用了cross-validation的training或test辨识率，那么这样的实验方法已经不能称为 cross-validation了。</p>
+</li>
+<li><p>EA与k-CV正确的搭配方法</p>
+<p>  将dataset分成k等份的subsets后，每次取1份 subset作为test set，其余k-1份作为training set，并且将该组training set套用到EA的fitness function计算中(至于该training set如何进一步利用则没有限制)。因此，正确的k-CV 会进行共k次的EA演化，建立k个classifiers。而k-CV的test辨识率，则是k组test sets对应到EA训练所得的k个classifiers辨识率之平均值。</p>
+</li>
+</ul>
+
+      
+      
+
+  <div class="declare" hidden="hidden"></div>
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>学学学，整体就知道学，除了学习你还会点啥，书呆子！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://i.loli.net/2019/12/01/AxWCzilbQFca5yI.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -215,103 +301,167 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/14/Libsvm%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E4%B8%8E%E7%BD%91%E6%A0%BC%E6%90%9C%E7%B4%A2%EF%BC%88%E5%8F%82%E6%95%B0%E9%80%89%E6%8B%A9%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/14/%E6%94%AF%E6%92%91%E5%90%91%E9%87%8F%E6%9C%BA/" class="archive-article-date">
-  	<time datetime="2019-12-14T05:18:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/14/%E6%94%AF%E6%92%91%E5%90%91%E9%87%8F%E6%9C%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">支撑向量机学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/14/%E6%94%AF%E6%92%91%E5%90%91%E9%87%8F%E6%9C%BA/">支撑向量机学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、交叉验证"><span class="toc-number">1.</span> <span class="toc-text">一、交叉验证</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1）Double-cross-validation"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1）Double cross-validation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2）k-folder-cross-validation-k折交叉验证"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">2）k-folder cross-validation(k折交叉验证)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3）leave-one-out-cross-validation-LOOCV留一验证法"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">3）leave-one-out cross-validation(LOOCV留一验证法)</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、参数选择"><span class="toc-number">2.</span> <span class="toc-text">二、参数选择</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、注意点"><span class="toc-number">3.</span> <span class="toc-text">三、注意点</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B-1/" class="archive-article-date">
-  	<time datetime="2019-11-30T14:15:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-        </div>
-    	 
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Libsvm交叉验证与网格搜索（参数选择）" data-title="Libsvm交叉验证与网格搜索（参数选择）" data-url="http://yoursite.com/2019/12/14/Libsvm%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E4%B8%8E%E7%BD%91%E6%A0%BC%E6%90%9C%E7%B4%A2%EF%BC%88%E5%8F%82%E6%95%B0%E9%80%89%E6%8B%A9%EF%BC%89/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E3%80%8AClassification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance%E3%80%8B-1/">论文阅读笔记1《Classification-on-Imbalanced-Data-Sets-Taking-Advantage-of-Errors-to-Improve-Performance》</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">论文阅读笔记系列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">第一篇博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+
+
+
+   
+       <section id="comments" class="comments">
+         <style>
+           .comments{margin:30px;padding:10px;background:#fff}
+           @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+         </style>
+         <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var notify = 'false' == true ? true : false;
+  var verify = 'false' == true ? true : false;
+  new Valine({
+    av: AV,
+    el: '#vcomment',
+    notify: notify,
+    app_id: "uieTpuCwI1lUPYSf0SvnWqjg-gzGzoHsz",
+    app_key: "ykAOcXNeqLPgT6R0V63QLfBN",
+    placeholder: "Just go go",
+    avatar: "mm",
+  });
+</script>
+     </section>
+   
 
 
           </div>
@@ -340,8 +490,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
