@@ -66,7 +66,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #00000"></div>
+<div class="overlay" style="background: #4d4d4d"></div>
 
 <!-- 《添加“心知天气”-->
 <div id="tp-weather-widget"></div>
@@ -124,13 +124,15 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">首页</a></li>
 	        
-				<li><a href="/archives/index.html">归档</a></li>
+				<li><a href="/categories">分类</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">相册</a></li>
+				<li><a href="/photos/index.html">相册</a></li>
 	        
 				<li><a href="/playlist">歌单</a></li>
+	        
+				<li><a href="/archives/index.html">所有文章</a></li>
 	        
 			</ul>
 		</nav>
@@ -143,11 +145,11 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)" target="_blank" rel="noopener">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)" target="_blank" rel="noopener">搜索</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)" target="_blank" rel="noopener">友链[招租]</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)" target="_blank" rel="noopener">💴AD💵</a>
     			
             
     			
@@ -187,7 +189,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #00000"></div>
+  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -201,6 +203,8 @@
 			</hgroup>
 			
 			
+			
+				
 			
 				
 			
@@ -232,13 +236,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">首页</a></li>
 		        
-					<li style="width: 25%"><a href="/archives/index.html">归档</a></li>
+					<li style="width: 20%"><a href="/categories">分类</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/%E9%9A%8F%E7%AC%94/">相册</a></li>
+					<li style="width: 20%"><a href="/photos/index.html">相册</a></li>
 		        
-					<li style="width: 25%"><a href="/playlist">歌单</a></li>
+					<li style="width: 20%"><a href="/playlist">歌单</a></li>
+		        
+					<li style="width: 20%"><a href="/archives/index.html">所有文章</a></li>
 		        
 				</ul>
 			</nav>
@@ -279,7 +285,6 @@
   	<time datetime="2019-11-30T14:15:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
 </a>
 
-
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
         
@@ -301,7 +306,6 @@
       </span>
     </span>
 </div>
-
 
           
         <!-- 添加完成 -->
@@ -384,6 +388,17 @@
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/论文笔记系列//" class="article-tag-list-link color2">论文笔记系列</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -444,7 +459,6 @@
   	<time datetime="2019-12-14T11:02:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
 </a>
 
-
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
         
@@ -466,7 +480,6 @@
       </span>
     </span>
 </div>
-
 
           
         <!-- 添加完成 -->
@@ -540,11 +553,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">支撑向量机SVM</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">支撑向量机SVM</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
@@ -611,7 +624,6 @@
   	<time datetime="2019-12-14T05:18:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
 </a>
 
-
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
         
@@ -633,7 +645,6 @@
       </span>
     </span>
 </div>
-
 
           
         <!-- 添加完成 -->
@@ -780,16 +791,6 @@
 
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
 
-            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-      		<span id="busuanzi_container_site_pv">
-                本站总访问量：<span id="busuanzi_value_site_pv"></span>次
-            </span>
-            <span class="post-meta-divider">|</span>
-            <span id="busuanzi_container_site_uv">
-                本站访客数：<span id="busuanzi_value_site_uv"></span>人
-            </span>
-
-
 
       	</div>
     </div>
@@ -850,11 +851,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" target="_blank" rel="noopener" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" target="_blank" rel="noopener" q-class="active:innerArchive">搜索</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" target="_blank" rel="noopener" q-class="active:friends">友链[招租]</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" target="_blank" rel="noopener" q-class="active:friends">💴AD💵</a></li>
       
         
       
@@ -879,15 +880,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">支撑向量机SVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">支撑向量机SVM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1099,11 +1100,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="/%E6%9A%82%E6%97%B6%E6%B2%A1%E6%9C%89%E5%93%88%EF%BC%8C%E6%9C%89%E4%BA%86%E5%86%8D%E6%94%BE%E4%B8%8A%E6%9D%A5%E5%93%88%EF%BC%9A%C4%A6%C5%81%C5%A6%D2%8E:/%C4%B9%C7%BE%CF%BE%C9%85%C4%B9%D3%87%D7%9D%CF%A8%C5%81:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>trap</a>
+              <a href="/%E6%9A%82%E6%97%B6%E6%B2%A1%E6%9C%89%E5%93%88%EF%BC%8C%E6%9C%89%E4%BA%86%E5%86%8D%E6%94%BE%E4%B8%8A%E6%9D%A5%E5%93%88%EF%BC%9A%D2%BA%C5%A6%C5%81%D2%8E:/%C4%B9%D7%9D%C2%A9@%C4%B9%C4%A6%C3%B5%CF%9F%CD%B3:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>trap</a>
             </li>
           
             <li class="search-li">
-              <a href="/%E6%9A%82%CC%8B%CC%87%CD%90%CD%AA%CC%83%CC%81%CC%93%CD%8B%CC%80%CC%B7%CC%A1%CC%A8%CC%AE%CD%85%CC%BA%CC%A9%CC%B0%CD%88%CC%B3%CD%96%CC%B9%CC%AF%CC%B9%CD%99%CC%A0%CC%B2%CD%88%CD%95%CD%8E%CD%96%CC%AC%CC%AB%CC%B9%CC%BA%CD%88%CD%85%CD%95%CD%85%CC%AE%CC%A4%CC%97%CC%9D%CD%9A%CC%AE%CC%BA%CC%A3%CC%9E%CC%96%CC%B3%CC%98%CD%89%CD%99%CC%9F%CC%9E%CD%95%E6%97%B6%CD%97%CD%97%CC%8A%CD%86%CC%B6%CC%B4%CD%9C%CD%98%CC%A5%CC%BB%CD%99%CC%99%CC%A5%CC%B3%CD%85%CD%9A%CC%A5%CC%99%CD%89%CC%9E%CC%B9%CC%AA%CC%B3%CD%93%CC%9C%CC%9D%CC%AA%CC%98%CC%96%CC%A6%CC%96%CC%AF%CD%89%CC%A0%CC%BB%CC%AC%CC%AC%CD%99%CC%AC%CD%96%CC%9C%CC%98%CD%88%CD%85%CC%BB%CD%89%CD%89%CC%AF%CD%87%CC%98%CC%97%E6%B2%A1%CC%BF%CC%93%CC%8C%CC%89%CC%92%CC%80%CD%91%CD%AD%CC%93%CC%81%CC%83%CC%82%CD%82%CD%9F%CC%B4%CC%B6%CD%89%CC%9F%CD%87%CC%B1%CD%95%CC%9F%CC%B1%E6%9C%89%CC%8D%CC%82%CC%BF%CD%97%CC%BD%CC%8B%CC%94%CD%86%CD%97%CC%9A%CC%88%CD%91%CC%88%CD%90%CC%8E%CC%81%CC%93%CC%9B%20%D2%89%CD%94%CC%A9%CC%A4%CC%A3%CC%B3%CC%9E%CC%B3%CC%B9%CC%BC%CC%97%CC%B9%CD%8E%CD%9A%CC%A4%CC%BC%CC%B2%CC%9F%CC%9D%CD%93%CC%96%CC%AE%CC%B9%CC%9C%CC%A6%CC%A0%CC%A4%CC%BC%CD%99%CC%B0%CD%95%CD%99%CD%8D%CD%95%CC%9E%CC%AD%CC%A5%CD%87%CD%88%CD%95%CD%95%CD%94%CC%B0%CC%9D%CC%AF%CC%AA%CC%9F%CC%BA%CD%85%CC%AD%CC%96%CD%85%CD%87%CC%B2%CC%A3%CC%A5%CC%AD%CC%A6%CC%A9%CC%99%CD%85%CD%95%CC%AF%CD%8E%E5%93%88%CD%A5%CC%83%CC%80%CC%88%CD%AF%CD%A6%CD%AB%CD%86%CD%AE%CC%89%CD%A8%CD%AF%CC%88%CC%94%CD%AD%CC%80%CC%88%CC%8B%CC%81%CC%9B%CC%B5%CD%A1%CC%A8%CC%AA%CD%9A%CC%B0%CC%B1%CD%8E%CC%AD%CD%88%CD%94%CD%95%CC%B3%CC%9E%CD%8D%CD%9A%CC%B1%CC%AD%CC%B2%CC%9F%CC%A9%CC%AE%CC%97%CC%B2%CD%95%CD%85%CC%9D%CD%9A%CD%8D%CC%BA%CC%99%CC%B0%CC%9D%CD%96%CC%97%CC%AE%CC%99%CD%85%CC%B2%CD%89%EF%BC%8C%CC%BE%CC%90%CD%A5%CD%AA%CC%86%CD%AF%CC%87%CC%8A%CC%81%CD%9B%CC%8F%CD%90%CC%84%CD%A0%CD%9C%CC%BB%CC%AB%CD%9A%CD%95%CC%AF%CC%A3%CD%95%CC%AD%CC%AA%CD%8E%CC%AB%CD%9A%CC%99%CD%8D%CD%93%CD%96%CC%A9%CC%96%CD%96%CD%89%CC%A9%CD%8E%CC%AD%CC%AF%CC%A0%CC%9C%CD%94%CC%9C%CC%99%CD%89%CC%AA%CD%99%CC%AC%CD%93%CC%B3%CD%88%CD%9A%CC%B2%CD%95%CD%87%CD%93%CC%97%CC%96%CD%88%CC%99%CC%A6%CC%AB%CD%88%CC%AA%CC%B1%CC%9D%CD%94%CC%A9%CC%96%CD%8E%CC%A5%CC%A3%CD%93%CC%9C%CD%96%CC%A3%E6%9C%89%CC%8D%CC%9A%CC%84%CC%88%CC%9A%CD%82%CC%82%CC%B7%CC%A1%CD%9E%CC%A1%CC%B6%CC%B1%CC%AC%CC%B1%CC%BB%CD%88%CD%9A%CC%AA%CD%89%CD%94%CD%8E%CD%93%CD%94%CC%AE%CC%B9%CC%9D%CC%B9%CD%96%CC%AC%CC%B9%CC%A9%CD%8D%CC%A4%CC%97%CD%85%CD%9A%CD%93%CC%B9%CC%AD%CC%B0%CD%99%CD%93%CC%BA%CD%89%CC%AF%CD%99%CC%A6%CC%A4%CD%9A%CC%97%CC%BC%CC%B1%CD%87%CD%95%CD%99%CC%A6%CD%95%CC%AD%CD%89%CD%87%CC%99%CC%9F%CC%A5%CC%B1%E4%BA%86%CD%91%CC%81%CC%91%CC%86%CC%88%CC%84%CD%8B%CD%86%CD%A4%CD%A3%CD%AB%CD%A3%CD%9C%CD%98%CD%8D%CD%8D%CD%9A%CC%A0%CC%99%CD%87%CC%96%CC%AB%CC%AD%CC%9F%CD%9A%CD%94%CC%BA%CC%B9%CC%98%CC%AA%CC%AB%CC%BA%CD%87%CD%94%CC%A5%CD%94%CC%A0%CC%B2%CD%89%CC%AD%CC%B3%CC%9F%CD%95%CC%B3%CD%8E%CC%AB%CC%99%E5%86%8D%CC%81%CC%88%CC%8C%CD%A8%CD%AC%CD%A4%CD%92%CC%84%CC%8F%CC%92%CD%90%CD%90%CC%84%CC%8D%CC%91%CC%88%CD%AA%CD%A7%CC%81%CD%9E%CC%A7%CC%81%CC%A7%CC%B5%CD%94%CC%B2%CD%95%CD%89%CD%95%CC%AA%CD%85%CC%9D%CC%A6%CC%B9%CC%AA%CC%B0%CC%98%CC%B0%CC%B1%CC%BC%CC%A3%CC%B0%CC%A6%CC%9D%CC%A4%CC%96%CC%9F%CC%B0%CD%9A%CD%9A%CD%99%CC%9D%CD%93%CC%BC%E6%94%BE%CD%8B%CD%82%CD%8A%CC%8F%CD%90%CD%8B%CC%81%CC%80%CC%80%CC%96%CC%A6%CD%93%CD%95%CC%AB%CC%A3%CD%8D%CC%AA%CD%93%CC%AA%CC%99%CC%AD%CC%AB%CC%9D%CC%A9%CC%B9%CC%B3%CD%87%CC%97%CC%AD%CC%B0%CC%BB%CC%96%CC%97%CD%93%CC%B2%CC%A4%CC%B2%CC%B9%E4%B8%8A%CD%9B%CC%82%CD%A4%CC%8E%CC%8C%CC%94%CD%8C%CD%AB%CC%81%CC%8D%CC%8D%CD%9B%CD%82%CC%BF%CC%8A%CC%81%CD%82%CC%91%CC%87%CC%9B%CD%9F%CD%9D%CD%9E%CC%95%CD%88%CC%AB%CD%8D%CC%AD%E6%9D%A5%CC%90%CC%88%CC%8F%CC%82%CD%8A%CD%91%CD%8B%CD%A8%CC%94%CD%A8%CD%A6%CD%8A%CC%8D%CC%84%CD%A6%CC%B4%CC%95%CC%B6%CC%B7%CD%88%CC%BB%CD%93%CC%BC%CC%A0%CC%97%CC%A4%CC%AA%E5%93%88%CD%AD%CC%85%CD%AD%CC%8E%CC%9B%CC%81%CC%B4%CC%9B%CD%98%CD%85%CC%A5%CC%9C%CC%A0%CD%85%CC%BC%CC%BB%CC%B0%CC%BA%CD%96%CC%AA%CC%B0%CD%88%CC%97%CD%87%CC%AF%CD%94%CC%AE%CC%BC%CC%BB%CD%85%CC%B1%CD%99%CC%AD%CD%99%CD%99%EF%BC%9A%CD%90%CC%84%CD%AF%CC%BD%CD%86%CC%82%CD%A9%CC%88%CD%AA%CD%8B%CC%92%CC%8F%CC%80%CD%AB%CC%A7%CC%B8%CC%BB%CC%AB%CC%9F%CC%98%CC%98%CC%B3%CC%B2%CD%9A%CC%A5%CC%A4%CD%8E%CD%89%CC%AC%CC%AB%CC%AB%CC%AF%CC%98%CD%87%CC%AD%CD%93%CC%9C%CD%99%CD%8D%CC%BB%CD%89%CC%A0%CD%85%CD%9A%CC%A0%CC%9D%CC%9E%CC%9E%CD%85%CD%99%CC%AC%CC%96%CC%97%CC%9C%CC%AE%CC%AC%CC%BA%CC%98%CD%88%CC%AB%CD%8D%CC%96%CC%A3%CC%98%CC%A9%CD%99%CC%9E%CC%AC%CC%9E%CC%96%CD%88%CC%9F%CD%8D%CC%A6%CC%A6%CC%AC%CD%8Dh%CC%92%CD%86%CD%A8%CD%AD%CC%89%CD%92%CC%88%CC%81%CD%A2%CC%9B%CC%A4%CD%99%CD%9A%CD%89%CC%9F%CC%AA%CC%AD%CD%87t%CC%BF%CC%82%CD%A7%CC%88%CD%82%CC%80%CC%88%CC%89%CC%91%CC%81%CD%8A%CC%93%CC%8E%CD%A4%CC%90%CC%8C%CC%8D%CD%8C%CD%A3%CC%B7%CC%B7%CC%B9%CC%AB%CC%BC%CC%99%CD%88%CC%99%CD%8E%CC%98%CC%AB%CC%A6%CD%87%CC%A3%CD%8D%CC%AE%CC%AD%CC%AC%CC%AD%CC%A4%CC%AB%CC%A9%CC%AC%CD%87%CD%88%CC%BC%CC%AB%CC%A9%CC%AD%CC%AB%CC%BA%CC%AC%CC%A9%CC%AA%CC%9C%CC%9C%CD%8E%CD%88%CD%94%CD%96%CD%94t%CC%87%CC%87%CC%83%CD%AF%CC%90%CC%94%CD%AF%CC%94%CC%83%CD%AC%CC%8C%CD%90%CD%AE%CD%98%CC%A1%CC%96%CC%AB%CD%87%CC%BA%CC%A6%CC%B1%CC%AA%CD%8D%CC%AD%CC%A6%CD%8E%CC%B1%CC%AF%CD%99%CC%BC%CD%88%CD%94%CD%94%CD%87%CD%89%CC%BC%CD%89%CC%98%CC%B9%CC%AE%CD%85%CC%B3%CD%9A%CC%97%CD%95%CC%AC%CC%96%CC%99%CD%94%CC%B3%CC%B0%CC%A0%CC%A3%CC%99%CC%A0%CC%9E%CC%9D%CC%97%CD%89%CC%A4%CD%94%CC%B2%CC%9E%CC%A9%CD%94%CC%97%CC%A9%CD%93p%CC%9A%CD%A3%CD%91%CC%BD%CD%A8%CC%81%CC%87%CD%90%CD%9D%CC%A2%CC%80%CC%A1%CC%AD%CD%87%CC%9D%CC%B3%CC%AB%CC%B3%CC%B0%CC%B0%CC%A6%CC%A5%CC%A4%CC%AB%CC%BA%CC%9C%CC%A5%CC%97%CC%B1%CD%9A%CC%B0%CC%A3%CC%96%CC%A6%CD%89%CD%85%CD%85%CC%A3%CC%AA%CD%95%CD%95%CD%94%CD%95%CC%AE%CC%9E%CC%9D%CD%93%CC%AA%CC%97%CC%9F%CC%AD%CC%B9%CC%B0%CC%A5%CC%A0%CC%AB%CC%B0%CC%AC%CD%9A%CC%B9%CC%A6%CC%9E%CC%A9%CC%BB%CD%95%CC%B2%CC%A5:%CC%BE%CD%92%CC%92%CD%92%CC%8D%CC%80%CC%8F%CC%BF%CD%AC%CC%8B%CC%87%CC%85%CC%94%CC%88%CD%9C%CC%B6%CD%A1%CD%A2%CD%9D%CC%9F%CC%AF%CD%87%CC%98%CC%B0%CD%99%CC%AF%CD%94%CC%AC%CC%97%CC%B3%CC%A9%CC%9F%CC%99%CD%9A%CC%BC%CC%B1%CD%94%CC%A0%CD%96%CD%8D%CD%9A%CC%A6%CD%93%CD%85%CC%9C%CC%A9%CC%96%CC%A9%CC%AC%CC%AB%CC%A6%CC%BA%CC%A0%CC%B0%CC%A3%CD%88%CC%B1%CC%AA%CC%B1%CC%BB%CC%AE%CC%B3%CD%9A%CC%BC%CC%9E%CC%B9%CD%96%CC%B2%CD%8E%CC%9C%CC%BA%CC%9C%CD%87%CC%B9%CD%8D%CC%A4/%CC%8D%CD%A7%CC%80%CC%87%CC%81%CC%80%CC%80%CC%94%CD%A8%CD%A8%CC%BF%CC%91%CC%88%CC%8B%CD%AE%CC%83%CC%90%CD%98%CC%A2%CC%B4%CC%A2%CC%81%CD%87%CC%AF%CC%BB%CC%A0%CC%AB%CD%99%CC%A6%CC%B3%CC%9F%CC%9F%CC%B1%CC%AF%CC%AD%CC%BB%CC%A3%CD%93%CD%93%CC%AC%CD%9A%CD%89%CC%96%CC%96%CD%87%CD%93%CC%BC%CC%B3%CD%96%CD%85%CC%AA%CD%94%CD%95%CD%93%CD%85%CC%A6%CC%BC%CD%94%CD%85%CC%A3%CD%8D%CD%8D%CC%A5%CC%AE%CC%BA%CC%AF%CC%97%CD%94%CC%BB%CD%99%CC%97%CC%AC%CD%8D%CC%AA/%CD%A5%CD%AC%CD%AE%CD%86%CD%82%CC%82%CD%AF%CD%92%CC%8F%CD%9B%CC%8D%CC%8C%CD%8C%CC%A8%CC%80%CC%B5%CC%A8%CD%9F%CC%9D%CC%AB%CD%88%CC%BB%CC%97%CC%A4%CD%85%CC%B1%CC%A6%CD%87%CC%B0%CC%AF%CC%AC%CC%B9%CC%AF%CC%B9l%CD%A5%CC%82%CD%A4%CD%AC%CD%91%CD%AB%CC%BF%CD%AB%CC%92%CD%8B%CD%82%CC%8D%CC%88%CD%AE%CC%8B%CD%A7%CC%80%CC%80%CC%B6%CD%A1%CD%9E%CC%A0%CD%85%CC%AE%CC%A4%CC%BC%CC%B9%CC%A6%CC%98%CC%A5o%CD%A3%CC%83%CC%8B%CC%93%CD%A8%CD%97%CD%A5%CD%A4%CC%91%CD%A2%CD%A1%CC%AF%CC%AA%CD%99%CC%A5%CC%A3%CC%A4%CD%85%CC%96%CC%B3%CC%BA%CD%8D%CC%9E%CC%A5%CC%AC%CD%87%CD%93%CC%AE%CC%BC%CD%96%CC%A6%CD%8D%CC%9E%CC%BB%CD%8E%CC%AE%CC%BA%CD%95%CC%A4%CC%B9%CC%9E%CD%99%CD%95%CD%89%CD%99%CC%B9%CD%9A%CC%A4c%CD%A8%CC%93%CD%91%CC%88%CD%AF%CC%87%CD%A8%CC%90%CC%8D%CC%BD%CD%A8%CD%AA%CD%90%CD%9D%CC%80%CC%81%CD%9F%CD%96%CC%A6%CC%9C%CC%A6a%CD%97%CC%8E%CC%90%CC%8D%CD%AC%CC%83%20%D2%89%CD%9F%CC%95%CD%9F%CC%81%CD%95%CC%B9%CC%A4%CC%B1%CC%A3%CC%B3%CD%88%CC%B2%CC%AD%CC%9F%CC%BC%CC%AC%CC%B2%CC%AD%CC%B3%CC%9F%CC%A9%CD%99%CD%95%CC%A3%CC%9E%CD%99%CD%93%CC%A5%CD%96%CD%85%CC%97%CD%93%CD%89%CD%96%CC%B0%CC%9C%CC%A4%CC%AC%CD%93%CC%9F%CC%B2%CC%AA%CC%97%CD%8E%CC%A4%CC%AF%CC%AD%CD%8E%CC%AA%CD%96%CC%96%CC%BCl%CC%8A%CC%81%CC%8F%CC%88%CC%A7%CC%A7%CC%9B%CC%A6%CD%87%CC%BB%CD%8D%CD%87%CC%B9%CC%A4%CC%9F%CC%9F%CD%94%CC%B0%CC%AAh%CC%85%CC%82%CC%89%CC%87%CD%AD%CD%AE%CC%8F%CD%AF%CD%8C%CD%AA%CD%97%CD%8A%CC%91%CC%B6%CC%B7%CC%80%20%D2%89%CC%9F%CC%A5%CC%96%CD%94%CC%B9%CC%A4%CC%A6%CC%9E%CD%87o%CC%BD%CD%A7%CD%8A%CD%AE%CC%8C%CC%8F%CD%82%CD%9F%CC%A2%CC%A7%CC%9B%CC%B1%CC%AC%CD%95%CC%A9%CC%B3%CC%B1%CD%94%CC%AE%CC%A0%CC%B0%CD%99%CC%A6%CC%BB%CD%93%CC%B2%CC%AE%CC%A3%CC%9F%CD%95%CD%85%CC%A6%CC%B3%CC%BA%CC%A5%CC%AE%CC%BC%CD%93%CC%97%CC%9E%CC%AB%CD%87%CC%B3%CD%8E%CC%AA%CC%A6%CD%96%CC%A4%CC%AC%CC%9C%CC%BC%CC%A4%CC%BC%CC%B3%CC%B1%CC%B0%CC%A9%CC%AC%CC%A3%CD%99%CC%9D%CC%B0%CD%8D%CD%8E%CC%B1%CC%AB%CC%A3%CC%9C%CD%85%CC%9F%CD%94%CC%99s%CC%83%CC%85%CC%80%CC%84%CC%9B%CC%80%CC%B4%CD%A1%20%D2%89%CC%AC%CC%A9%CC%9D%CD%94%CD%94%CD%87%CC%9E%CC%B9%CC%A9%CC%B9%CC%97%CC%A6%CD%96%CC%A5%CD%93%CC%9E%CC%9C%CD%88%CD%95%CD%85%CD%89%CC%A9%CC%BC%CC%A3%CD%9A%CC%A0%CD%85%CC%AA%CC%B2%CD%87%CD%9A%CD%85%CD%85%CC%9E%CC%B9%CD%88%CC%A0%CC%9D%CC%B9%CD%99%CD%94%CC%9D%CC%B1%CD%95%CC%AB%CC%A4%CC%AE%CD%9A%CC%BB%CD%89%CC%98%CC%AF%CC%AD%CD%95%CD%99%CC%A3%CC%B1%CC%98%CC%AD%CC%B9%CC%AF%CD%9A%CD%93t%CC%85%CD%A3%CC%92%CD%A9%CC%85%CD%82%CC%89%CD%A5%CD%8B%CC%8D%CC%80%CC%80%CC%9B%CD%A1%CC%B9%CC%B0%CD%8D%CC%BC%CC%BB%CD%87%CD%89%CC%9F%CC%AF%CC%9C%CC%AF:%CC%91%CC%94%CD%8B%CD%AC%CD%A9%CC%8D%CC%8A%CC%86%CD%97%CC%80%CD%9D%CC%B5%CC%80%CC%96%CD%9A%CD%95%CC%AB%CC%A5%CC%AE%CC%AF%CC%9D%CC%9D%CD%8E%CC%97%CD%96%CD%87%CD%94%CC%A34%CC%93%CC%89%CD%AD%CC%8D%CD%AA%CC%BE%CC%9A%CC%93%CC%94%CC%A1%CD%A1%CC%9E%CD%93%CD%9A%CC%AA%CD%8E%CC%B0%CC%A0%CD%88%CC%B3%CD%93%CD%8D%CC%AA%CC%9F%CC%B2%CC%A9%CC%9E%CC%A9%CC%A0%CD%85%CD%88%CD%88%CD%93%CD%89%CC%B9%CC%A9%CC%B3%CC%9C0%CC%90%CD%AC%CC%BF%CC%85%CC%8C%CD%86%CD%A2%CC%A8%CD%95%CD%89%CC%AE%CD%96%CD%88%CC%96%CC%AF%CC%AB%CC%B30%CC%8B%CD%A4%CD%AC%CD%A5%CC%87%CC%A7%CC%81%CC%A7%CC%A1%CC%A9%CC%A5%CC%9D%CD%93%CC%AC%CC%AD%CD%8D%CD%89%CC%96%CD%89%CC%BA%CC%97%CD%8E%CC%A3%CD%8E%CC%BB%CC%A9%CC%BA%CD%88%CC%AF%CC%99%CC%9D%CC%AF%CD%9A%CC%B9%CD%95%CC%AD%CC%AF%CC%AE%CC%97%CC%99%CC%A0%CC%9C%CC%AD%CC%AB%CC%A30%CC%90%CC%8C%CC%88%CC%89%CC%8D%CC%81%CC%9A%CC%9A%CD%8C%CD%90%CC%8D%CD%82%CC%80%CD%9B%20%D2%89%CD%A1%CD%A1%CC%81%CD%9D%CC%B2%CC%AE%CD%88%CC%BB%CC%A0%CC%B1%CC%98%CC%9D%CC%A0%CC%B3%CD%85%CC%AD%CC%A5%CC%98%CC%AD%CC%AA%CC%AA%CC%9D%CC%B2%CC%B9%CD%89%CC%AB%CD%94%CD%93%CD%8D%CC%AC%CC%B2%CC%B0%CC%BA%CC%BB%CC%AE%CC%BB%CD%88%CC%AF%CC%BA%CD%93%CD%99%CC%BC%CC%98%CC%AA%CC%A6%CC%AC%CC%AD%CC%9D%CC%A3%CD%93%CC%A3%CD%95%CD%8E%CD%93%CC%AD%CD%99%CD%88%CD%93%CC%AB%CC%A0%CD%94%CC%98%CC%AF%CC%A5%CC%BC%CD%89%CD%96%CC%A3%CC%98%CC%97/%CD%8B%CD%AD%CC%8E%CD%82%CD%AE%CD%91%CD%86%CC%85%CC%89%CD%AF%CC%93%CC%9B%CD%98%CC%A7%CC%95%CD%9F%CC%9D%CD%89%CC%BC%CC%96%CC%AE%CC%B0%CC%A3%CD%99%CD%87%CC%AC%CD%87%CC%B1%CD%9A%CC%9E%CC%96%CC%A5%CC%B3%CD%85%CD%85%CD%8D%CC%B2%CC%AF%CC%A4%CC%A5%CD%96%CC%9E%CC%A4%CC%96%CD%93%CC%A9%CC%B9%CC%AA%CC%B9%CD%89%CD%8E%CD%8E%CC%BC%CC%9E%CD%93%CC%A9%CC%A9%CD%8D%CC%AB%CC%BB%CC%BA%CD%96%CD%99%CC%9D%CC%BB%CC%97%CC%A5%CC%97%CD%94%CC%97%CD%8E%CC%B9%CC%A5%CC%AE" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>zalgo</a>
+              <a href="/%E6%9A%82%CD%AA%CD%9B%CC%8F%CC%BD%CC%85%CC%8B%CC%BD%CC%83%CC%90%CD%86%CC%89%CD%92%CD%9B%CD%9B%CC%92%CC%A7%CC%9B%CC%B5%CC%B8%CD%9D%CC%B0%CD%94%CD%99%CC%BB%CC%AD%CD%95%CD%87%CC%9D%CD%94%CD%8E%CC%A4%CC%A6%CC%A4%CC%AE%CC%AB%E6%97%B6%CC%93%CC%81%CD%A9%CC%81%CD%91%CD%90%CD%A6%CC%86%CC%91%CD%8A%CC%8B%CD%AC%CD%92%CC%BD%CD%AD%CC%BE%CC%A7%CC%A8%CC%B4%CC%9B%CD%9D%CD%89%CD%9A%CD%8D%CC%AC%CD%96%CC%B2%CC%9C%CC%9F%CC%AC%CC%9C%CC%B1%CC%9F%CC%96%CD%93%CD%95%CC%A9%CC%A9%CD%85%CC%AF%CC%9C%CC%A0%CC%AA%CC%AF%CC%BC%CC%B9%CC%BB%CC%AD%CC%B3%CC%97%CC%BA%CC%A5%CD%99%CC%96%E6%B2%A1%CC%85%CD%A3%CD%90%CD%A6%CC%8A%CD%9C%CC%9B%CD%9C%CC%9B%CC%81%CC%97%CD%96%CC%B0%CC%98%CD%89%CC%B2%CC%A9%CC%BB%CC%9D%CC%B1%CC%A5%CC%AA%CC%AA%CC%97%E6%9C%89%CD%91%CD%A5%CC%85%CC%86%CC%BF%CC%87%CD%9B%CC%86%CD%A8%CC%80%CD%98%CC%9E%CC%AF%CC%AE%CD%88%CC%AB%CD%8D%CD%8E%CC%96%CC%9E%CC%A3%CD%85%CD%88%CC%AA%E5%93%88%CD%A3%CC%91%CC%9A%CD%AF%CC%83%CC%88%CD%98%CC%B4%CD%85%CC%9F%CD%87%CC%AD%CD%93%CC%A6%CC%AB%CD%89%CC%B0%CD%87%CC%A4%CC%AE%CC%A9%CC%9C%CD%96%CC%AF%CC%B2%CC%AC%CC%BA%CC%9D%CD%88%CD%9A%CC%AF%CD%95%CC%BC%CC%9E%CD%99%CC%B9%CC%B3%CC%AA%EF%BC%8C%CD%A6%CD%A4%CD%8C%CD%AA%CC%88%CC%8D%CC%8A%CD%97%CD%92%CD%A8%CC%85%CD%82%CD%92%CC%86%CC%82%CC%B8%CD%A2%CC%BA%CC%9F%CC%97%CC%B9%CC%9F%CC%B1%CD%89%CC%B0%CC%B3%CC%B0%CD%89%CC%A6%CC%BC%CC%AC%CC%B2%CC%AA%E6%9C%89%CD%A3%CC%8D%CC%8D%CC%94%CD%A6%CC%BE%CD%8A%CD%A4%CD%A9%CC%BD%CC%83%CD%AC%CC%94%CC%88%CC%89%CD%92%CD%AB%CC%8A%CD%8C%CC%B7%CC%81%CD%96%CC%BA%CC%AF%CC%98%CC%A3%CC%AE%CC%98%CC%AA%CD%8E%CD%99%CC%AF%CC%AF%CC%AA%CD%8D%CC%B2%CC%A3%CD%8D%CC%9C%E4%BA%86%CD%A5%CC%88%CC%80%CD%97%CD%AF%CC%94%CD%86%CD%A3%CC%95%CC%B8%CC%97%CC%9F%CD%8E%CC%B2%CD%99%CC%AD%CC%A0%CC%97%CC%A5%CD%8D%CC%B2%CD%8E%CC%B9%CC%AE%CC%98%CC%BB%CC%AA%CC%BC%CC%A9%CC%AD%CD%8D%CC%99%CC%A4%CC%AD%CD%93%CD%96%CD%8E%CC%BC%CD%94%CC%BC%CC%A3%CD%9A%CD%93%CC%99%CD%8E%CC%AB%CC%BB%CC%A5%CC%99%CD%99%CC%9D%CC%BA%CC%A6%CD%94%CC%A0%CC%BC%CC%9C%CC%AA%CC%97%CC%9C%CC%A5%CD%88%CC%BB%CC%96%CC%A9%E5%86%8D%CD%AB%CC%8C%CC%87%CC%8C%CC%83%CC%BE%CD%AF%CC%89%CC%87%CC%83%CD%97%CD%A8%CC%8F%CC%88%CD%8C%CD%90%CC%84%CC%90%CC%88%CD%A2%CD%9E%CC%A1%20%D2%89%CC%95%CC%AE%CC%B9%CC%B1%CC%B0%CC%BB%CD%85%CD%87%CC%9F%CC%AE%CC%B1%E6%94%BE%CD%82%CC%8C%CD%AA%CD%AC%CD%A0%CD%98%CD%88%CC%A0%CC%AB%CC%B2%CC%A0%CC%AE%CD%95%CC%A5%CC%B1%CD%93%CC%A6%CC%B9%CD%94%CC%9F%CC%A6%CC%AD%CC%B0%CC%98%CC%AA%CD%8E%CC%AA%CC%AB%CC%9D%CC%AD%CC%9D%CC%B0%CC%AA%CD%99%CC%B2%CC%B1%CC%99%CC%99%CC%B0%CD%99%CC%AC%CC%A0%CD%85%CC%AE%CD%96%CC%97%CC%96%CC%BA%CC%AE%CD%89%CC%B9%CC%A9%E4%B8%8A%CC%82%CC%83%CC%84%CC%87%CD%A5%CC%81%CD%9F%CC%A1%CD%99%CC%AD%CC%B1%CD%89%CC%A9%CC%A4%CC%A6%CD%99%CD%85%CC%AB%CD%96%CD%89%CC%97%CD%95%CD%94%CC%B0%CC%B1%CD%85%CC%99%CD%8D%CD%96%CC%96%CC%BC%CD%8D%CD%94%CD%89%E6%9D%A5%CC%90%CC%89%CD%A5%CD%8B%CD%90%CC%8A%CD%AA%CD%AC%CD%AE%CC%8E%CC%BE%CC%81%CC%8F%CC%87%CD%97%CC%88%CC%90%CD%A7%CC%90%CC%B5%CD%A1%CC%A7%CC%B8%CC%A8%CC%9E%CC%B1%CC%98%CC%9C%CD%8D%CC%9C%CC%AC%CC%AA%CC%BC%CC%AD%CC%98%CC%9F%CC%AB%CC%B2%CC%B0%CD%88%CD%88%CC%9C%CC%A0%CC%97%CD%93%CC%B3%CC%B9%CC%A0%CC%AA%CC%B2%CC%AF%CC%A4%CC%A6%E5%93%88%CD%97%CC%93%CC%92%CC%88%CD%9B%CC%92%CD%9B%CC%BE%CD%AC%CC%84%CD%A8%CD%AB%CC%8D%CC%88%CD%A7%CC%84%CD%AA%CD%A8%CC%A8%CD%9F%CC%81%CC%B4%CC%95%CD%89%CC%BC%CC%B3%CC%B9%CD%99%CD%99%CD%95%CC%98%CC%BC%CD%8E%CC%A3%CD%8E%CC%AC%CC%AA%CD%85%CC%9D%CC%96%CD%8D%CC%A0%CD%88%CC%AD%CC%9D%CD%93%CC%A9%CC%B2%CD%8D%CC%B2%CD%95%CC%B9%CC%AB%CD%94%CD%9A%CC%9D%CC%98%CC%AA%CC%BA%CC%99%CD%95%CC%AC%CC%AD%CD%94%CC%B3%CD%96%CC%A4%CD%8D%CC%AD%CD%9A%CC%96%CD%94%EF%BC%9A%CC%94%CD%AA%CC%81%CC%9A%CD%AA%CC%87%CC%81%CD%90%CC%82%CD%A8%CC%8F%CD%A7%CC%92%CC%88%CD%A3%CC%89%CC%B4%CD%A0%CC%81%CC%B0%CD%88%CC%AA%CC%A3%CD%88%CD%94%CC%A9%CD%85%CD%8D%CC%B2%CC%9D%CC%A4%CC%B2%CD%89%CC%9E%CC%A6%CC%9E%CC%97%CD%89%CC%96%CC%B9%CC%B2%CD%8Eh%CD%A3%CC%94%CC%89%CD%AE%CC%8D%CD%8B%CD%AB%CC%93%CC%89%CC%84%CD%A5%CD%8B%CD%A3%CD%AA%CD%A4%CC%9B%CD%9C%CD%93%CC%AA%CC%A5%CC%B9%CC%B9%CC%9C%CC%AC%CC%9D%CD%8E%CD%99t%CD%86%CC%94%CD%AA%CD%A7%CC%88%CC%BF%CD%82%CC%89%CD%A5%CC%85%CC%8B%CC%9A%CC%8B%CD%AF%CC%8A%CD%8C%CD%A5%CC%BD%CD%92%CC%A1%CC%B6%CC%95%CC%A0%CC%B9%CC%A3%CC%9D%CC%99t%CC%9A%CD%90%CD%A5%CD%8B%CC%88%CD%A9%CC%9A%CD%92%CD%82%CC%92%CD%82%CC%8A%CC%8A%CC%82%CC%83%CC%86%CD%9D%CC%B4%CC%9B%CD%A1%CC%81%CC%B1%CC%98%CD%95%CC%B2%CD%85%CC%A9%CC%A9%CD%87%CC%A6%CC%AC%CC%B2%CD%99%CC%B3%CC%A3%CD%87%CC%96%CC%9D%CC%9F%CD%85%CC%AA%CC%98%CD%89%CC%AB%CC%AE%CD%95%CC%BA%CC%AB%CC%B1%CD%88%CD%88%CC%B1%CD%87%CC%96p%CC%8E%CD%A9%CC%8F%CD%9B%CD%A5%CC%88%CC%93%CC%93%CC%BD%CC%A1%CC%A1%CC%AE%CD%93%CC%AB%CD%93%CC%AB%CD%8E%CC%9C%CC%A0%CC%B1%CC%96%CD%96%CC%AF%CC%A0%CC%97%CC%BB%CD%96%CD%8D:%CC%88%CD%9B%CC%92%CC%87%CC%92%CD%A6%CD%A7%CC%84%CC%90%CC%93%CC%90%CC%B7%CC%81%CD%A1%CD%A2%CD%A0%CC%B1%CD%8D%CC%B3%CD%89%CC%AF%CC%A3%CD%93%CC%98%CC%B2%CC%AD%CC%A3%CD%87%CD%88%CC%97%CD%85%CC%B1%CC%AA%CD%85%CC%B9%CC%B0%CC%AA%CC%AF%CC%A6%CD%85%CD%95%CC%9F%CC%B1%CC%B9%CC%AA%CC%BC%CD%88%CC%9C%CD%94%CC%BA%CC%96%CD%87%CD%8D%CC%99/%CC%93%CC%8D%CC%91%CC%87%CC%82%CD%A3%CC%93%CD%8C%CD%AD%CC%88%CD%AD%CC%93%CC%81%CD%A2%CC%B4%CD%93%CC%BC%CC%AE%CD%96%CC%A9%CC%AD%CD%85%CC%99%CC%B1%CD%8D%CC%B2%CC%B1%CC%B1/%CC%8F%CD%8B%CD%AF%CC%93%CD%8A%CD%8A%CD%91%CC%88%CC%93%CC%86%CD%A8%CC%8B%CD%8A%CC%A7%CC%B6%CD%A1%CC%A2%CC%9E%CC%BC%CC%A9%CC%9C%CD%85%CD%96%CC%9C%CC%AB%CD%94%CD%8D%CC%98%CC%A0%CD%99%CC%BC%CD%88%CC%B2%CC%9E%CC%98%CC%B3%CD%85%CC%A9%CC%AD%CD%95%CC%A6%CC%BB%CC%A6%CD%89%CC%9F%CC%AE%CC%9E%CC%BB%CD%95%CD%8E%CC%AE%CC%98%CC%9D%CC%A4%CC%AC%CC%AE%CD%8D%CD%8E%CC%AE%CC%9D%CC%B2%CC%A4%CC%A5%CC%AD%CD%9A%CC%A6%CC%BB%CC%B3%CC%A0%CD%96%CC%9E%CD%9A%CC%A9%CD%94%CC%A5l%CC%91%CD%8B%CC%83%CD%8C%CC%92%CC%90%CD%AC%CD%A5%CD%AA%CC%86%CD%A2%CC%B5%CC%95%CD%A2%CC%9F%CC%B2%CD%87%CD%9A%CC%9E%CD%93%CD%99%CC%96%CC%98%CD%8E%CD%9A%CD%93%CC%B2%CC%B2%CC%A5%CC%99%CD%85%CC%9D%CC%98%CC%A9%CC%A3%CD%93%CD%87%CC%AA%CD%87%CC%AC%CC%9F%CC%BA%CC%9E%CD%8E%CC%A4%CC%9E%CC%9D%CC%BA%CD%96%CD%8E%CD%95%CD%8D%CC%A5%CC%AB%CC%AA%CC%A6%CC%AB%CC%A3%CC%AC%CC%9F%CC%97%CC%A3%CC%AB%CC%96%CC%97%CC%96%CC%A5%CC%B3%CC%A3%CD%93o%CD%82%CC%BE%CC%BF%CD%AF%CC%8C%CC%8C%CC%8C%CC%8C%CC%BE%CC%8D%CD%AB%CC%8F%CC%9A%CC%B7%CC%B4%CC%81%CC%B8%CD%93%CD%96%CC%AC%CC%AB%CD%95%CC%97%CC%A6%CC%BB%CC%AB%CD%87%CC%A6%CC%B1%CC%B2%CC%BB%CD%95%CC%B1%CC%9D%CD%93%CC%B9%CC%98%CC%9E%CC%9D%CC%BA%CD%99%CC%9F%CD%8D%CC%A6%CC%9E%CC%AF%CC%AE%CC%A4%CC%BA%CC%9E%CC%AD%CD%93%CC%B3%CC%B9%CC%96%CC%AA%CC%9F%CC%AE%CC%9D%CC%B1c%CC%90%CC%88%CD%AA%CC%86%CD%AE%CC%8D%CC%89%CD%9B%CD%AE%CC%B8%CD%A1%CD%87%CC%96%CD%99%CC%9C%CD%9A%CC%98%CC%AF%CD%87%CC%AC%CD%9A%CC%BBa%CC%89%CD%A5%CD%A7%CC%8B%CC%8D%CC%BE%CC%93%CC%89%CC%93%CC%87%CC%BE%CC%83%CD%8C%CD%9B%CC%88%CD%AD%CD%82%CC%87%CD%9E%CC%81%CC%B5%CC%B8%CC%A1%CC%A4%CC%BA%CD%87%CC%B9%CC%98%CD%88%CD%8D%CD%95%CD%93%CC%A0%CC%9F%CD%99%CC%9E%CD%85%CC%A9%CC%96%CC%98%CC%AE%CD%9A%CD%85%CD%88%CD%96%CC%AE%CC%B1%CD%95%CC%AF%CD%87%CC%AB%CC%B2%CD%95%CC%96%CC%A4%CD%93%CD%8E%CD%96%CC%B3%CC%9D%CC%BA%CD%94%CD%93%CC%A3%CC%AA%CC%AF%CC%A4%CD%8E%CC%99%CC%98%CC%BC%CD%85%CC%9C%CC%A3%CD%89%CD%85%CC%B3%CC%9C%CD%95%CC%9C%CD%8E%CC%9D%CD%8D%CD%9A%CD%96%CC%BBl%CC%8B%CC%8C%CC%86%CC%84%CC%83%CC%88%CC%BF%CD%8C%CD%AC%CD%A9%CD%AF%CC%8C%CD%9D%CC%B8%CD%A2%CC%A7%CC%80%CD%95%CC%AC%CC%96%CD%8E%CC%B0%CC%BB%CC%9D%CC%AB%CD%94%CD%8D%CC%AD%CD%87%CC%96%CD%87%CC%B9%CC%A9%CC%A9%CC%AE%CC%9F%CC%B9%CC%9E%CC%B2%CC%96%CC%97%CC%9E%CD%88%CD%85%CC%B3%CC%A0%CC%9F%CD%85%CD%8D%CC%A0%CC%AC%CC%AA%CC%A3%CC%BC%CC%A0h%CC%8D%CD%AB%CC%BF%CC%BE%CC%88%CC%8D%CD%A6%CC%83%CC%8B%CC%A2%CC%A7%CC%96%CC%B1%CC%97%CD%99%CC%9C%CC%A6%CC%BB%CC%B2%CC%B9%CD%85%CD%93%CD%87%CC%BC%CD%89%CD%99%CD%8E%CD%89%CD%9A%CC%A5%CC%B1%CC%BC%CD%94%CC%97%CC%B0%CD%94%CC%9E%CC%A5%CD%85%CC%A0%CC%AF%CC%97%CD%8D%CC%B2%CC%A4o%CC%89%CD%A9%CC%8F%CC%91%CD%8A%CD%91%CC%83%CC%91%CD%97%CC%92%CC%9B%CC%B4%CC%BB%CC%A5%CC%9F%CC%A3%CD%8D%CC%AF%CD%88%CC%B3%CC%BA%CD%94%CD%9A%CD%94%CC%AE%CD%94%CC%B0%CC%B9%CC%AB%CC%BC%CC%AF%CD%8E%CD%8E%CC%B2%CD%99%CD%99%CD%93%CC%9F%CC%9E%CC%B9%CC%BA%CC%A9%CC%A0%CD%99%CD%87%CC%A9%CC%B1%CD%99%CD%94%CC%AA%CD%8E%CC%AC%CD%94%CC%9E%CD%8D%CD%8E%CD%8E%CC%9C%CD%88s%CC%89%CC%93%CC%86%CC%86%CD%A4%CC%93%CD%90%CC%B5%CD%A2%CC%B6%CD%94%CD%85%CC%A3%CC%B9%CD%85%CD%94%CC%B2%CC%97%CD%93%CC%A4%CC%B1%CC%A6%CC%97%CC%BC%CC%A5%CC%A4%CC%B1%CD%87%CC%AC%CD%89%CD%89%CC%A6%CC%AC%CC%AF%CD%85%CC%A4%CC%B3%CC%AF%CD%87%CC%BC%CC%AC%CC%B1%CC%99t%CC%92%CD%8C%CC%93%CD%AC%CD%AA%CD%92%CD%A3%CD%90%CC%90%CC%9A%CC%B8%CD%A2%CD%9E%CC%B5%CD%9A%CC%BA%CD%95%CD%93%CD%99%CD%88%CC%BC%CC%AB%CD%9A%CC%9E%CD%89%CC%BB%CC%A4%CC%BC%CD%87%CD%89%CC%A4%CC%99%CC%AC%CC%BC%CC%AE%CD%88%CD%85%CC%B2%CC%AA%CC%B3%CC%B3%CD%8D%CC%B1%CC%AD%CD%89:%CD%90%CC%85%CD%90%CD%A9%CD%A5%CC%83%CD%A9%CD%AF%CD%AF%CD%8C%CD%9F%20%D2%89%CC%A1%CD%9F%CC%AE%CC%B3%CC%A9%CC%9E%CC%9F%CC%A6%CC%9C%CC%BA%CD%93%CC%99%CC%96%CC%A3%CC%B9%CC%A4%CD%99%CC%B1%CC%98%CD%95%CC%9D%CD%93%CC%B9%CC%AE%CC%AA%CC%BC%CC%B3%CC%A9%CC%A0%CC%A6%CD%8E%CC%A9%CC%B2%CC%A34%CD%AF%CC%93%CC%8D%CD%AD%CC%9A%CD%8A%CD%97%CC%85%CD%8A%CC%8C%CC%95%CD%98%CC%A6%CC%AE%CC%A6%CD%95%CC%A6%CC%A3%CC%A5%CD%88%CC%9F%CD%87%CD%85%CD%87%CC%B1%CC%A6%CC%AF%CD%9A%CD%89%CC%A9%CD%93%CC%98%CC%B0%CD%8E%CC%9E%CC%B0%CC%A0%CD%95%CD%8E%CC%96%CC%AC%CC%A4%CC%A5%CC%9F%CC%AC%CC%B1%CC%A4%CC%9F%CC%AB%CC%AF%CD%87%CD%88%CD%88%CC%AD%CC%B0%CC%BB%CD%99%CD%96%CC%97%CC%AC%CC%9F%CC%9E%CD%89%CC%B2%CC%980%CD%AD%CD%AD%CC%93%CD%A5%CD%A1%CD%A0%CD%A2%CC%B6%CC%9C%CD%94%CD%96%CC%B0%CC%B2%CC%AC%CC%AF%CC%B1%CD%99%CC%B0%CC%BA%CD%8E%CC%AF%CD%89%CC%AF%CC%A5%CC%AC%CC%B2%CC%BC%CC%B0%CC%96%CC%B3%CD%93%CC%AC%CD%88%CC%99%CD%96%CC%AF%CD%9A%CC%A4%CD%8D%CC%A6%CD%96%CD%96%CD%9A%CD%87%CC%A6%CC%A9%CC%A9%CC%9E%CD%8E%CC%A3%CC%BB%CD%8D%CC%9E%CD%930%CC%8F%CD%91%CC%92%CD%8C%CD%9D%CC%80%CD%9E%CC%9D%CC%AA%CC%9E%CC%9C%CD%940%CC%8C%CC%BE%CC%BE%CD%A8%CC%A2%CC%B4%CC%9C%CC%AF%CC%BA%CD%85%CC%B2%CC%A3%CC%A3%CD%95%CC%B2%CC%9F%CC%97%CC%AF%CC%A9%CD%8E%CC%A6%CD%9A%CC%9F%CC%AD%CD%89%CD%94%CC%B2%CC%AA%CC%97%CC%97%CD%8D%CC%AB%CD%9A%CC%AD%CD%85%CD%8E%CC%A6%CD%87%CC%9C%CD%8E%CC%B0%CC%AF%CC%AA%CD%85/%CC%83%CD%A5%CC%92%CD%91%CD%91%CC%90%CD%98%CD%98%CD%A0%CC%95%CC%A4%CC%97%CC%9E%CC%9E%CD%89%CC%A0%CC%BC%CD%94%CC%B3%CD%8D%CC%A5%CD%8E%CC%A0%CC%97%CC%9E%CD%95%CC%9C" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>zalgo</a>
             </li>
           
             <li class="search-li">
@@ -1115,7 +1116,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="/%1B%5B37m%E6%9A%82%1B%5B39m%1B%5B36m%E6%97%B6%1B%5B39m%1B%5B90m%E6%B2%A1%1B%5B39m%1B%5B97m%E6%9C%89%1B%5B39m%1B%5B4m%E5%93%88%1B%5B24m%1B%5B35m%EF%BC%8C%1B%5B39m%1B%5B36m%E6%9C%89%1B%5B39m%1B%5B97m%E4%BA%86%1B%5B39m%1B%5B90m%E5%86%8D%1B%5B39m%1B%5B94m%E6%94%BE%1B%5B39m%1B%5B32m%E4%B8%8A%1B%5B39m%1B%5B4m%E6%9D%A5%1B%5B24m%1B%5B93m%E5%93%88%1B%5B39m%1B%5B31m%EF%BC%9A%1B%5B39m%1B%5B92mh%1B%5B39m%1B%5B93mt%1B%5B39m%1B%5B34mt%1B%5B39m%1B%5B92mp%1B%5B39m%1B%5B93m:%1B%5B39m%1B%5B32m/%1B%5B39m%1B%5B36m/%1B%5B39m%1B%5B97ml%1B%5B39m%1B%5B36mo%1B%5B39m%1B%5B32mc%1B%5B39m%1B%5B31ma%1B%5B39m%1B%5B36ml%1B%5B39m%1B%5B37mh%1B%5B39m%1B%5B4mo%1B%5B24m%1B%5B93ms%1B%5B39m%1B%5B7mt%1B%5B27m%1B%5B97m:%1B%5B39m%1B%5B93m4%1B%5B39m%1B%5B36m0%1B%5B39m%1B%5B33m0%1B%5B39m%1B%5B93m0%1B%5B39m%1B%5B90m/%1B%5B39m" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>random</a>
+              <a href="/%1B%5B34m%E6%9A%82%1B%5B39m%1B%5B91m%E6%97%B6%1B%5B39m%1B%5B93m%E6%B2%A1%1B%5B39m%1B%5B92m%E6%9C%89%1B%5B39m%1B%5B34m%E5%93%88%1B%5B39m%1B%5B37m%EF%BC%8C%1B%5B39m%1B%5B7m%E6%9C%89%1B%5B27m%1B%5B31m%E4%BA%86%1B%5B39m%1B%5B94m%E5%86%8D%1B%5B39m%1B%5B94m%E6%94%BE%1B%5B39m%1B%5B31m%E4%B8%8A%1B%5B39m%1B%5B35m%E6%9D%A5%1B%5B39m%1B%5B91m%E5%93%88%1B%5B39m%1B%5B32m%EF%BC%9A%1B%5B39m%1B%5B91mh%1B%5B39m%1B%5B32mt%1B%5B39m%1B%5B97mt%1B%5B39m%1B%5B92mp%1B%5B39m%1B%5B34m:%1B%5B39m%1B%5B90m/%1B%5B39m%1B%5B35m/%1B%5B39m%1B%5B7ml%1B%5B27m%1B%5B34mo%1B%5B39m%1B%5B31mc%1B%5B39m%1B%5B31ma%1B%5B39m%1B%5B7ml%1B%5B27m%1B%5B35mh%1B%5B39m%1B%5B4mo%1B%5B24m%1B%5B34ms%1B%5B39m%1B%5B94mt%1B%5B39m%1B%5B94m:%1B%5B39m%1B%5B33m4%1B%5B39m%1B%5B33m0%1B%5B39m%1B%5B34m0%1B%5B39m%1B%5B93m0%1B%5B39m%1B%5B32m/%1B%5B39m" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>random</a>
             </li>
           
             <li class="search-li">
