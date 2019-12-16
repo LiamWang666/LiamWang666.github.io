@@ -59,6 +59,7 @@
 </head>
 
 
+
 <!-- 代码块复制功能 -->
 <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
 <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -647,35 +648,29 @@
 </div>
 
   
+
   
 
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+  
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
+  
 
-if(true){
-  var gitalk = new Gitalk({
-    clientID: 'a9cf73a1db243c9b99e7',
-    clientSecret: 'bce5f84ea6252023b87027d06b33082700300ca6',
-    repo: 'WangBlogComments',
-    owner: 'LiamWang666',
-    admin: ['Liam Wang'],
-    id: 'Sat Dec 14 2019 13:18:16 GMT+0800',
-    distractionFreeMode: 'true'
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+id: 'Sat Dec 14 2019 13:18:16 GMT+0800',
+  owner: 'LiamWang666',
+  repo: 'LiamWang666.github.io',
+  oauth: {
+    client_id: '52758da18860c892a320',
+    client_secret: 'f316983c296427a70c59f0245fd48c3ea0dc66f0',
+  },
 })
-gitalk.render('gitalk-container') 
-}
+gitment.render('gitment-ctn')
 </script>
-  
-
-  
-
-  
-
-  
-
   
 
 
@@ -841,7 +836,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">支撑向量机SVM</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">论文阅读笔记系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">第一篇博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -853,11 +852,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">论文阅读笔记系列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">第一篇博客</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">支撑向量机SVM</a>
               </li>
             
             <div class="clearfix"></div>
