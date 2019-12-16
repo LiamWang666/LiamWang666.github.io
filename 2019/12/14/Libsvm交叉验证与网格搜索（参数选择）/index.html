@@ -663,24 +663,31 @@
 
   
 
+
+
+       <div id="gitalk-container"></div>
+       <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '',
+  clientSecret: '',
+  repo: 'LiamWang666.github.io',
+  owner: 'LiamWang666',
+  admin: ['LiamWang666'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
   
 
   
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
-<script src="https://www.wenjunjiang.win/js/gitment.js"></script>
-<script>
-var gitment = new Gitment({
-  id: '{{ page.date }}',
-  owner: 'LiamWang666',
-  repo: 'LiamWang666.github.io',
-  oauth: {
-    client_id: '52758da18860c892a320',
-    client_secret: 'f316983c296427a70c59f0245fd48c3ea0dc66f0',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
+
   
 
 
