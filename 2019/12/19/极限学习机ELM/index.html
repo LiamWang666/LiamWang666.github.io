@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liamwang666.github.io">
-  <title>Hexo</title>
+  <title>&#39;极限学习机ELM&#39; | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,13 +23,19 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https:&#x2F;&#x2F;liamwang666.github.io&#x2F;playlist&#x2F;index.html">
+  <meta name="description" content="ELM与BP神经网络的区别 输入层与隐含层之间的权值、隐含层神经元的阈值无需迭代，随机产生后即不再改变  隐含层与输出层之间的权值也无需迭代，由解方程的形式解出后就不再改变（精确型RBF中也存在解方程地权值）">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#39;极限学习机ELM&#39;">
+<meta property="og:url" content="https:&#x2F;&#x2F;liamwang666.github.io&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E6%9E%81%E9%99%90%E5%AD%A6%E4%B9%A0%E6%9C%BAELM&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ELM与BP神经网络的区别 输入层与隐含层之间的权值、隐含层神经元的阈值无需迭代，随机产生后即不再改变  隐含层与输出层之间的权值也无需迭代，由解方程的形式解出后就不再改变（精确型RBF中也存在解方程地权值）">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-14T14:27:10.321Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload.cc&#x2F;i1&#x2F;2019&#x2F;12&#x2F;19&#x2F;apl6di.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload.cc&#x2F;i1&#x2F;2019&#x2F;12&#x2F;19&#x2F;wuXQJe.png">
+<meta property="og:updated_time" content="2019-12-30T13:13:08.287Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;upload.cc&#x2F;i1&#x2F;2019&#x2F;12&#x2F;19&#x2F;apl6di.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -53,9 +59,6 @@
 
   
 
-<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
-<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
-<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
 </head>
 
 
@@ -253,8 +256,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            
+
+<article id="post-极限学习机ELM" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      &#39;极限学习机ELM&#39;
+    </h1>
+  
+
+
+
+  <a href="javascript:;" target="_blank" rel="noopener" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读量:<span id="/2019/12/19/%E6%9E%81%E9%99%90%E5%AD%A6%E4%B9%A0%E6%9C%BAELM/" class="pageViews">0</span>次
+  </a>
+
+
+        
+        
+
+<a href="/2019/12/19/%E6%9E%81%E9%99%90%E5%AD%A6%E4%B9%A0%E6%9C%BAELM/" class="archive-article-date">
+  	<time datetime="2019-12-19T11:59:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
+</a>
+
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">126字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
 
@@ -284,7 +339,7 @@
           <br>
 
           <strong>本文链接：</strong>
-          <a rel="license" href="https://liamwang666.github.io/playlist/">https://liamwang666.github.io/playlist/</a>
+          <a rel="license" href="https://liamwang666.github.io/2019/12/19/%E6%9E%81%E9%99%90%E5%AD%A6%E4%B9%A0%E6%9C%BAELM/">https://liamwang666.github.io/2019/12/19/%E6%9E%81%E9%99%90%E5%AD%A6%E4%B9%A0%E6%9C%BAELM/</a>
           <br>
 
           <hr>
@@ -295,10 +350,29 @@
       <!-- 文章头增加转载声明结束 -->
 
       
-        
-    <div id="aplayer-IPGRyEXB" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="109474685" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
-    ></div>
+        <h1 id="ELM与BP神经网络的区别"><a href="#ELM与BP神经网络的区别" class="headerlink" title="ELM与BP神经网络的区别"></a>ELM与BP神经网络的区别</h1><ul>
+<li><p>输入层与隐含层之间的权值、隐含层神经元的阈值无需迭代，随机产生后即不再改变</p>
+</li>
+<li><p>隐含层与输出层之间的权值也无需迭代，由解方程的形式解出后就不再改变（精确型RBF中也存在解方程地权值）</p>
+</li>
+</ul>
+<a id="more"></a>  
+
+<h1 id="原理概述"><a href="#原理概述" class="headerlink" title="原理概述"></a>原理概述</h1><ul>
+<li><div align=left>结构图
+
+<div align=center><img src="https://upload.cc/i1/2019/12/19/apl6di.png" width = "35%" height = "25%" alt="SMOTE.png">
+</li>
+<li><div align=left>表达式
+
+<div align=center><img src="https://upload.cc/i1/2019/12/19/wuXQJe.png" width = "60%" height = "42%" alt="SMOTE.png">
+
+<div align=left>
+</li>
+<li><p>符号意义：n-输入层数（特征数）   l-隐含层数    m=输出层数    Q-样本数</p>
+</li>
+</ul>
+
       
 
 <!-- 增加版权声明 -->
@@ -384,6 +458,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -435,7 +520,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liamwang666.github.io/playlist/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://liamwang666.github.io/2019/12/19/%E6%9E%81%E9%99%90%E5%AD%A6%E4%B9%A0%E6%9C%BAELM/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -447,6 +532,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/12/20/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CGUI%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Matlab神经网络GUI的使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/17/%E4%B8%AA%E6%80%A7%E5%8C%96%E4%B8%BB%E9%A2%98%E7%9B%B8%E5%85%B3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">个性化主题相关</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -468,7 +572,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    有啥目录啊脑子不好使是不
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ELM与BP神经网络的区别"><span class="toc-number">1.</span> <span class="toc-text">ELM与BP神经网络的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原理概述"><span class="toc-number">2.</span> <span class="toc-text">原理概述</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -541,7 +645,7 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
